@@ -1,0 +1,10 @@
+Matram,tentram,TAB
+551900,Son Giang,mucnuoc_oday
+552000,Tra Khuc,mucnuoc_oday
+552100,An Chi,mucnuoc_oday
+552200,Song Ve,mucnuoc_oday
+552300,Binh Dong,mucnuoc_oday
+552400,Chau O,mucnuoc_oday
+552500,Tra Cau,mucnuoc_oday
+561700,Dung Quat Idro,mucnuoc_oday
+Hv48085,Ly Son - Hai van,haivan_H

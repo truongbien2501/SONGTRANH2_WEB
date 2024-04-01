@@ -1,0 +1,4 @@
+Matram,tentram,TAB
+5ST,mucnuoc,ho_dakdrinh_mucnuoc
+5ST,qxa,ho_dakdrinh_qdieutiet
+5ST,qden,ho_dakdrinh_qve

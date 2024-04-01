@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    admin:
+      email: vanbien93@gmail.com
+      name: bien
+      password: $2b$12$lQRvezUgSXnU2Cudj2Xm..74geVjCYDG9NvwC/5mFuKZRARdolY8y
+    ttb:
+      email: nhuanhuong@gmail.com
+      name: nhuan
+      password: $2b$12$vIoW0rEkCAoFEkML1kDAuOkwwqbaJT6IY3WzZFaa1N6QsIcoSHvMe
+cookie:
+  expiry_days: 30
+  key: random_signature_key # Must be string
+  name: random_cookie_name
+preauthorized:
+  emails:
+  - melsby@gmail.com

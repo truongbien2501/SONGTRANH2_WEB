@@ -1,0 +1,16 @@
+/* styles.css */
+
+/* Đổi màu nền của trang web */
+body {
+    background-color: #271cc0bb;
+}
+
+/* Đổi màu nền của tiêu đề */
+h1 {
+    color: #0080c0;
+}
+
+/* Đổi màu chữ cho văn bản */
+p {
+    color: #333;
+}
