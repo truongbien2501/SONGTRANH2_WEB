@@ -2,3 +2,14 @@ Matram,tentram,TAB
 5ST,mucnuoc,ho_dakdrinh_mucnuoc
 5ST,qxa,ho_dakdrinh_qdieutiet
 5ST,qden,ho_dakdrinh_qve
+TRABUI,TRABUI,mua_songtranh
+tracang,tracang,mua_songtranh
+tradon,tradon,mua_songtranh
+tragiac,tragiac,mua_songtranh
+traleng,traleng,mua_songtranh
+tralinh,tralinh,mua_songtranh
+TRAMAI,TRAMAI,mua_songtranh
+(UBNDHnamTM),UBNDHnamTM,mua_songtranh
+tramdapst2,tramdapst2,mua_songtranh
+tranam2,tranam2,mua_songtranh
+travan,travan,mua_songtranh

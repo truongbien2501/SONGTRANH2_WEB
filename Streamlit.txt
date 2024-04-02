@@ -1,7 +1,7 @@
 streamlit run SONGTRANH_WEB.py --server.runOnSave true
 streamlit run SONGTRANH_WEB.py --server.address 192.168.1.25 --server.port 8501 --server.runOnSave true
 streamlit run login.py --server.address 192.168.1.25 --server.port 8501 --server.runOnSave true
-streamlit run hochua.py --server.address 10.1.68.25 --server.port 8501 --server.runOnSave true
+streamlit run SONGTRANH_WEB.py --server.address 10.1.68.25 --server.port 8501 --server.runOnSave true
 streamlit run SONGTRANH_WEB.py --server.address 113.176.111.8 --server.port 8501 --server.runOnSave true
 
 http://113.160.244.189:8501/

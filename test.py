@@ -8,3 +8,7 @@
 # with file_pth.open('wb') as file:
 #     pickle.dump(hashed_passwords,file)
 # print(hashed_passwords)
+
+# import streamlit_authenticator
+
+# print(streamlit_authenticator.__version__)

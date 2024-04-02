@@ -8,14 +8,14 @@ import numpy as np
 # from docx2txt import process
 from func.load_image import get_image_from_ssh,read_ftp_sever_image
 from func.CDH_TTB_API import H_hochua,dungtich_hochua
-from func.bieudo import ve_H_hochua,ve_Q_veho,Bieudo_Q_H
+from func.bieudo import ve_H_hochua,ve_Q_veho,Bieudo_Q_H,Mucnuoc_songtranh,vebieudomua
 from func.pdf_image import export_imaepdf
 import streamlit_authenticator as stauth
 from streamlit_authenticator import Authenticate
 import yaml
 from yaml.loader import SafeLoader
 from func.Seach_file import tim_file,read_txt
-
+from datetime import datetime,timedelta
 
 # Thiết lập kích thước và chế độ hiển thị trang ứng dụng
 # st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_title="KTTV TTB", page_icon="	:sun_behind_rain_cloud:")
@@ -72,16 +72,12 @@ elif authentication_status == True:
     # st.markdown('<h1 style="font-size:25px;color:Blue;font-family: Times New Roman;text-align: center;">ĐÀI KHÍ TƯỢNG THUỶ VĂN TỈNH QUẢNG NGÃI</h1>', unsafe_allow_html=True)# tạo header màu xanh màu xanh time new roman
     st.write('----------------------------')
     
-    
-    # load muc nuoc, Q và vẽ biểu đồ
-    map_h,map_q,h_songtranh2 = Bieudo_Q_H()
-    # print(h_songtranh2)
+
+    # load muc nuoc
+    h_songtranh2 = Mucnuoc_songtranh()
     array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
     row_index = np.where(array_data['H']==float(h_songtranh2))
-    # print(array_data['W'][row_index])    
     dungtich_songtranh2 = str(array_data['W'][row_index])[1:-1]
-    # print(array_data['W'][row_index])
-
 
     # tinh dung tich cac ho chua
     data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung"],
@@ -118,11 +114,15 @@ elif authentication_status == True:
     # Tạo bảng
     st.table(df)
 
+
     # Tạo hộp văn bản và lấy giá trị người dùng nhập vào
     # Tạo bố cục gồm 2 cột
-    bd, kt = st.columns(2)
-    ngaybd = bd.date_input("Ngày bắt đầu")
+    bd,bd_gio, kt,kt_gio = st.columns(4)
+    # bd_gio, kt_gio = st.columns(2)
 
+    ngaybd = bd.date_input("Ngày bắt đầu",value=datetime((datetime.now() - timedelta(days=5)).year,(datetime.now() - timedelta(days=5)).month,(datetime.now() - timedelta(days=5)).day))
+    gio_batdau = bd_gio.time_input('Giờ bắt đầu',value=datetime.strptime("23:00", "%H:%M"))
+    
     # Định dạng CSS tùy chỉnh cho phần tử date input
     custom_css = """
     <style>
@@ -153,12 +153,38 @@ elif authentication_status == True:
     # Nhúng mã CSS tùy chỉnh vào ứng dụng
     st.markdown(custom_css, unsafe_allow_html=True)
     # Trong cột thứ hai, tạo lịch để chọn ngày kết thúc
-    ngaykt = kt.date_input("Ngày kết thúc")
+    ngaykt = kt.date_input("Ngày kết thúc",value=datetime(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour))
+    gio_ketthuc = kt_gio.time_input('Giờ kết thúc',value=datetime.strptime(datetime.now().strftime("%H:00"),"%H:00"))
+ 
+ 
+    map_h,map_q,data_mua,solieu_hq = Bieudo_Q_H(datetime.combine(ngaybd, gio_batdau),datetime.combine(ngaykt, gio_ketthuc))
 
-    # # Hiển thị giá trị đã chọn trong hộp văn bản
-    # bd.text_input("Ngày bắt đầu (hiển thị):", ngaybd)
-    # kt.text_input("Ngày kết thúc (hiển thị):", ngaykt)
-        
+    # hien thị bảng số liệu H Q
+    custom_css = """
+    <style>
+        table {
+            background-color: RGBA(255, 255, 255, 0.5);
+            margin: auto; /* Để căn giữa bảng theo chiều ngang */
+            margin-right: auto;
+        }
+        table th {
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+        table td {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    """
+    st.markdown(custom_css,unsafe_allow_html=True)
+    # solieu_hq = solieu_hq.sort_values(by='Thời gian',ascending=False)
+    # st.table(solieu_hq)
+    
+    
     st.pyplot(map_h)
     # Nhúng mã CSS để tùy chỉnh biểu đồ
     custom_css = """
@@ -173,13 +199,16 @@ elif authentication_status == True:
     """
     st.markdown(custom_css, unsafe_allow_html=True)
     st.pyplot(map_q)
-
-
-    # fig = ve_H_hochua()# ve H hồ chứa
-    # st.pyplot(map_h)
-
-    # fig = ve_Q_veho() # ve Q về hồ
-    # st.pyplot(fig)
+    # print(data_mua)
+    # name_eng = ['TRABUI', 'tracang', 'tradon', 'tragiac', 'traleng', 'tralinh','TRAMAI', 'UBNDHnamTM', 'tramdapst2', 'tranam2', 'travan']
+    chontrammua = st.selectbox("Chọn trạm", ['Trà Bùi', 'Trà Căng', 'Trà Dơn', 'Trà Giác', 'Trà Leng', 'Trà Linh','Trà Mai', 'UBNDHnamTM', 'Trà Đốc(Đập chính)', 'Trà Nam', 'Trà Vân'])
+    tramve = data_mua[['time',chontrammua]]
+    # print(tramve)
+    images =  vebieudomua(tramve)
+    st.pyplot(images)
+ 
+    
+    print(data_mua)
 
     # tao thanh slidebar va du lieu trong slidebar
     # with st.sidebar:
@@ -214,12 +243,12 @@ elif authentication_status == True:
     for location, coord in tram_kttv.items():
         # print(location)
         # folium.Marker(coord, popup=location, tooltip=location).add_to(m)
-        if location =='Trà Khúc' or location =='Sơn Giang':
+        if 'Câu Lâu' in location or 'Giao Thủy' in location or 'Nông Sơn' in location: # bieu tuong thuy chi cho tram do thuy van
             custom_icon = folium.CustomIcon(icon_image="image/thuychi.png", icon_size=(10, 50))
             folium.Marker(coord, popup=location,icon=custom_icon).add_to(m)
             # folium.Marker(coord, popup=location,icon=folium.Icon(color='blue')).add_to(m)
         else:
-            custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30))
+            custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30)) # bieu tuong mua cho tram do mua
             folium.Marker(coord, popup=location,icon=custom_icon).add_to(m)
     # # Hiển thị bản đồ trong ứng dụng Streamlit
     # Tạo expander cho Dự báo và Kết quả
