@@ -1,14 +1,7 @@
-# # from streamlit_authenticator import Hasher
-# import streamlit_authenticator as stauth
-# from pathlib import Path
-# import pickle
-
-# hashed_passwords = stauth.Hasher(['admin', 'admin']).generate()
-# file_pth = Path(__file__).parent / 'hashed_pw.pkl'
-# with file_pth.open('wb') as file:
-#     pickle.dump(hashed_passwords,file)
-# print(hashed_passwords)
-
-# import streamlit_authenticator
-
-# print(streamlit_authenticator.__version__)
+import plotly.express as px
+df = px.data.wind()
+print(df)
+# fig = px.bar_polar(df, r="frequency", theta="direction",
+#                    color="strength", template="plotly_dark",
+#                    color_discrete_sequence= px.colors.sequential.Plasma_r)
+# fig.show()

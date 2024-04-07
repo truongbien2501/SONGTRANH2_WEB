@@ -1,4 +1,5 @@
 streamlit run SONGTRANH_WEB.py --server.runOnSave true
+streamlit run test1.py --server.runOnSave true
 streamlit run SONGTRANH_WEB.py --server.address 192.168.1.25 --server.port 8501 --server.runOnSave true
 streamlit run login.py --server.address 192.168.1.25 --server.port 8501 --server.runOnSave true
 streamlit run SONGTRANH_WEB.py --server.address 10.1.68.25 --server.port 8501 --server.runOnSave true

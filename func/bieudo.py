@@ -139,7 +139,7 @@ def Bieudo_Q_H(bd,kt):
     data.set_index('time',inplace=True)
     data = data[data.index.minute == 0]
     data =data.astype(float)
-    data = data.replace(0,np.nan)
+    # data = data.replace(0,np.nan)
     # data= data.interpolate(method='linear')
     # data = data.applymap("{0:.2f}".format)
     data.reset_index(drop=False,inplace=True)
@@ -211,8 +211,9 @@ def Bieudo_Q_H(bd,kt):
     data['qxa'] =  data['qxa'].map('{0:.1f}'.format)
     data.rename(columns={'time':'Thời gian','mucnuoc':'Mực nước (m)','qden':'Q đến (m3/s)','qxa':'Q điều tiết (m3/s)'},inplace=True)
     # name_eng = ['TRABUI', 'tracang', 'tradon', 'tragiac', 'traleng', 'tralinh','TRAMAI', 'UBNDHnamTM', 'tramdapst2', 'tranam2', 'travan']
-    name_viet = ['time','Trà Bùi', 'Trà Căng', 'Trà Dơn', 'Trà Giác', 'Trà Leng', 'Trà Linh','Trà Mai', 'UBNDHnamTM', 'Trà Đốc(Đập chính)', 'Trà Nam', 'Trà Vân']
+    name_viet = ['time','Trà Bui', 'Trà Cang', 'Trà Dơn', 'Trà Giác', 'Trà Leng', 'Trà Linh','Trà Mai', 'UBNDHnamTM', 'Trà Đốc(Đập chính)', 'Trà Nam', 'Trà Vân']
     df_mua.columns =name_viet
+    data.iloc[:,1:4] = data.iloc[:,1:].astype(float)
     return fig,fig1,df_mua,data
 
 
