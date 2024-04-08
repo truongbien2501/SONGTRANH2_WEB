@@ -4,14 +4,14 @@ import folium
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from func.load_image import get_image_from_ssh,read_ftp_sever_image
+from func.load_image import get_image_from_ssh
 from streamlit_authenticator import Authenticate
 import yaml
 from yaml.loader import SafeLoader
 from datetime import datetime,timedelta
 from numerize.numerize import numerize
 from streamlit_extras.metric_cards import style_metric_cards
-from func.MOHINH_SOTRI import read_muadb_sever_sontranh,anh_mo_hinh_WRF
+from func.MOHINH_SOTRI import read_muadb_sever_sontranh
 import paramiko
 from PIL import Image
 import io
@@ -163,7 +163,6 @@ def dubao_songtranh():
     data.reset_index(drop=False,inplace=True)  
     return data    
 
-
 @st.cache_data
 def vebieudomua(df_mua):
     # fig, ax = plt.subplots()
@@ -226,6 +225,9 @@ def html_mua(df,tentram):
     return html,html1
 @st.cache_data
 def graphs_mua(df):
+    bd = df['time'].min()
+    kt = df['time'].max()
+    # print(bd)
     #ve mua
     luongmua = df.iloc[:,1:].sum().to_list()
     tram= df.columns.to_list()[1:]
@@ -235,7 +237,7 @@ def graphs_mua(df):
        x="Trạm",
        y='Lượng mưa',
        orientation="v",
-       title="<b> Biểu đồ mưa thực đo lưu vực </b>",
+       title="<b>Biểu đồ mưa thực đo từ {} đến {}</b>".format(bd.strftime('%Hh %d/%m'),kt.strftime('%Hh %d/%m')),
        color_discrete_sequence=["#0083B8"],
        template="plotly_white",
     )
@@ -282,35 +284,43 @@ def graphs_h(df_h):
        color_discrete_sequence=["#0083b8"],
        template="plotly_white",
     )
-    fig_mucnuoc.update_layout(
-    xaxis=dict(tickmode="linear"),
-    plot_bgcolor="rgba(0,0,0,0)",
-    yaxis=(dict(showgrid=True))
-     )
+    fig_mucnuoc.update_traces(mode="lines")
+    fig_mucnuoc.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig_mucnuoc.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig_mucnuoc.update_layout(spikedistance=1000, hoverdistance=100)
+    # fig_mucnuoc.update_layout(
+    # xaxis=dict(tickmode="linear"),
+    # plot_bgcolor="rgba(0,0,0,0)",
+    # yaxis=(dict(showgrid=True))
+    #  )
     return fig_mucnuoc
-@st.cache_resource
-def graphs_h_tv(df_h,tentram,namesave):
-    # # vẽ muc nuoc
-    fig_mucnuoc=px.line(df_h,x=df_h.columns.to_list()[0],y=tentram,
-       orientation="v",
-       title="<b>Đường quá trình mực nước tram {}</b>".format(tentram),
-       color_discrete_sequence=["#0083b8"],
-       template="plotly_white",
-    )
-    fig_mucnuoc.update_layout(
-    xaxis=dict(tickmode="linear"),
-    plot_bgcolor="rgba(0,0,0,0)",
-    yaxis=(dict(showgrid=True))
-     )
-    # fig_mucnuoc.show()
-    fig_mucnuoc.write_html("data/{}.html".format(namesave))  
+# @st.cache_resource
+# def graphs_h_tv(df_h,tentram,namesave):
+#     # # vẽ muc nuoc
+#     fig_mucnuoc=px.line(df_h,x=df_h.columns.to_list()[0],y=tentram,
+#        orientation="v",
+#        title="<b>Đường quá trình mực nước tram {}</b>".format(tentram),
+#        color_discrete_sequence=["#0083b8"],
+#        template="plotly_white",
+#     )
+#     fig_mucnuoc.update_layout(
+#     xaxis=dict(tickmode="linear"),
+#     plot_bgcolor="rgba(0,0,0,0)",
+#     yaxis=(dict(showgrid=True))
+#      )
+#     # fig_mucnuoc.show()
+#     fig_mucnuoc.write_html("data/{}.html".format(namesave))  
 @st.cache_resource
 def graphs_Q(df_Q):
     # Vẽ biểu đồ
     fig = px.line(df_Q, x = 'Thời gian' ,y=[df_Q['Q đến (m3/s)'],df_Q['Q điều tiết (m3/s)']],color_discrete_sequence=['Red', '#ff7f0e'])
+    fig.update_traces(mode="lines")
+    fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig.update_layout(spikedistance=1000, hoverdistance=100)
     # Cập nhật layout của biểu đồ
     fig.update_layout(
-        title="<b>Đường quá trình lưu lượng</b>",
+        title="<b>Đường quá trình thực đo lưu lượng</b>",
         xaxis=dict(tickmode="linear",tickformat="%d-%m-%Y %H:%M",dtick="H1",tickangle=-60),
         plot_bgcolor="rgba(1,0,0,0)",
         yaxis=dict(showgrid=True,title="Lưu lượng (m3/s)"),
@@ -499,14 +509,14 @@ elif authentication_status == True:
     array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
     row_index = np.where(array_data['H']==float(h_songtranh2))
     dungtich_songtranh2 = str(array_data['W'][row_index])[1:-1]
-
+    tyle = (float(dungtich_songtranh2)/733.4)*100
     # tinh dung tich cac ho chua
-    data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung"],
-            "Mực nước(m)": ['{:.1f}'.format(h_songtranh2), '-', '-'],
+    data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung 2"],
+            "Mực nước(m)": ['{:.1f}'.format(h_songtranh2), '375.25', '597.86'],
             "Dung tích (tr/m3)": [dungtich_songtranh2, "-", "-"],
-            "Tỷ lệ(%)": ['-', '-', "-"],
-            "MNDBT": ['-', '-', '-'],
-            "MN_CHẾT": ['-', '-', '-']
+            "Tỷ lệ(%)": ['{:.1f}'.format(tyle), '-', "-"],
+            "MNDBT": ['175', '380', '605'],
+            "MN_CHẾT": ['145', '340', '565']
             }
 
     # Tạo DataFrame từ dữ liệu
@@ -736,18 +746,22 @@ elif authentication_status == True:
             folium_static(m,width=550)
 
     with col2:
-        with st.expander ("Kết quả Mô Hình Số"):
-            ip = '203.209.181.171'
-            username = 'mpi'
-            password = 'mpi@1234'
-            ssh_directory  = '/home/disk2/KQ_WRF72h/{}/Hinh_00z_36h/Luoi2/MuaL2_11.png'.format(datetime.now().strftime('%d%m%Y'))  # Thay đổi đường dẫn tới tệp ảnh trên máy chủ
-            # image =   read_ftp_sever_image('tin_TVHN.png')
-            image = get_image_from_ssh(ip, username, password, ssh_directory)
+        with st.expander ("RADA TAM KỲ"):
+            # ip = '203.209.181.171'
+            # username = 'mpi'
+            # password = 'mpi@1234'
+            # ssh_directory  = '/home/disk2/KQ_WRF72h/{}/Hinh_00z_36h/Luoi2/MuaL2_11.png'.format(datetime.now().strftime('%d%m%Y'))  # Thay đổi đường dẫn tới tệp ảnh trên máy chủ
+            # # image =   read_ftp_sever_image('tin_TVHN.png')
+            # image = get_image_from_ssh(ip, username, password, ssh_directory)
+            try:
+                image = read_ftp_sever_rada_image()
+            except:
+                pass
             if image:
                 # Hiển thị ảnh bằng cách sử dụng hàm 'image' của Streamlit
-                st.image(image, caption='Mưa dự báo', use_column_width=True)
+                st.image(image, caption='Ảnh RaĐa Tam Kỳ hiện tại', use_column_width=True)
             else:
-                st.error("Không thể lấy ảnh từ máy chủ. Vui lòng kiểm tra lại thông tin SSH.")
+                st.error("Không thể lấy ảnh từ máy chủ. Vui lòng kiểm tra lại thông tin.")
         map_windy = st.expander("Windy")
         map_windy._iframe(src='https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=15.356&lon=108.158&detailLat=15.333856148597976&detailLon=108.18099975585939',height=500)
     #theme
