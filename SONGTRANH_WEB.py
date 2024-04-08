@@ -4,12 +4,10 @@ import folium
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from func.load_image import get_image_from_ssh
 from streamlit_authenticator import Authenticate
 import yaml
 from yaml.loader import SafeLoader
 from datetime import datetime,timedelta
-from numerize.numerize import numerize
 from streamlit_extras.metric_cards import style_metric_cards
 from func.MOHINH_SOTRI import read_muadb_sever_sontranh
 import paramiko
@@ -164,38 +162,39 @@ def dubao_songtranh():
     return data    
 
 @st.cache_data
-def vebieudomua(df_mua):
-    # fig, ax = plt.subplots()
+# def vebieudomua(df_mua):
+#     # fig, ax = plt.subplots()
 
-    # # Điều chỉnh lề trên, dưới, trái và phải
-    # top_margin = 0.1  # Thay đổi lề trên (top margin)
-    # bottom_margin = 0.05  # Thay đổi lề dưới (bottom margin)
-    # left_margin = 0.05  # Thay đổi lề trái (left margin)
-    # right_margin = 0.1  # Thay đổi lề phải (right margin)
-    # ax.figure.subplots_adjust(top=top_margin, bottom=bottom_margin, left=left_margin, right=right_margin)
+#     # # Điều chỉnh lề trên, dưới, trái và phải
+#     # top_margin = 0.1  # Thay đổi lề trên (top margin)
+#     # bottom_margin = 0.05  # Thay đổi lề dưới (bottom margin)
+#     # left_margin = 0.05  # Thay đổi lề trái (left margin)
+#     # right_margin = 0.1  # Thay đổi lề phải (right margin)
+#     # ax.figure.subplots_adjust(top=top_margin, bottom=bottom_margin, left=left_margin, right=right_margin)
     
-    luongmua = df_mua.iloc[:,1:].sum().to_list()
-    tram= df_mua.columns.to_list()[1:]
-    print(tram)
-    # print(tram,luongmua)
-    fig, ax = plt.subplots(figsize=(5, 4))
-    ax.bar(tram,luongmua)
-    ax.set_xlabel('Trạm',size = 20)
-    ax.set_ylabel('Lượng mưa (mm)',size = 20)
-    ax.set_title('Biểu đồ mưa',size = 30)
-    # ax2.legend(ghichu, loc='upper center', bbox_to_anchor=(0.5, -0.2), fancybox=True, shadow=True, ncol=len(ghichu))
-    # ax2.legend(ghichu)
-    # ax2.grid(True,linestyle='--', color='gray', linewidth=0.5, alpha=0.5)
-    # ax2.set_facecolor((1.0, 1.00, 0.196, 0.5)) 
-    plt.xticks(rotation=90, size=10)
-    plt.yticks(rotation=0, size=10)
-    # plt.tight_layout(pad=1)
-    # plt.show()
-    return fig,ax
+#     luongmua = df_mua.iloc[:,1:].sum().to_list()
+#     tram= df_mua.columns.to_list()[1:]
+#     print(tram)
+#     # print(tram,luongmua)
+#     fig, ax = plt.subplots(figsize=(5, 4))
+#     ax.bar(tram,luongmua)
+#     ax.set_xlabel('Trạm',size = 20)
+#     ax.set_ylabel('Lượng mưa (mm)',size = 20)
+#     ax.set_title('Biểu đồ mưa',size = 30)
+#     # ax2.legend(ghichu, loc='upper center', bbox_to_anchor=(0.5, -0.2), fancybox=True, shadow=True, ncol=len(ghichu))
+#     # ax2.legend(ghichu)
+#     # ax2.grid(True,linestyle='--', color='gray', linewidth=0.5, alpha=0.5)
+#     # ax2.set_facecolor((1.0, 1.00, 0.196, 0.5)) 
+#     plt.xticks(rotation=90, size=10)
+#     plt.yticks(rotation=0, size=10)
+#     # plt.tight_layout(pad=1)
+#     # plt.show()
+#     return fig,ax
 @st.cache_data
 def html_mua(df,tentram):
     # print(df)
     df = df.replace('nan','0.0')
+    print(df)
     html = f"""
     <h1 ><span style="color:black;">{tentram}</span></h1>
     <ul style="background-color: lightblue;">
@@ -682,13 +681,21 @@ elif authentication_status == True:
             folium.Marker(coord, popup=location,icon=custom_icon).add_to(m)
             # folium.Marker(coord, popup=location,icon=folium.Icon(color='blue')).add_to(m)            
         elif 'Việt Nam' not in location:
-            # custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30)) # bieu tuong mua cho tram do mua
+            # # custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30)) # bieu tuong mua cho tram do mua
+            # data_tichluy_html = data_tichluy.loc[location]
+            # print(data_tichluy_html)
+            # hlm,hlm1 = html_mua(data_tichluy_html,location)
+            # iframe = folium.IFrame(html=hlm, width=300, height=300)
+            # popup = folium.Popup(iframe, max_width=2650)
+            # folium.Marker(coord,popup=popup,icon=folium.DivIcon(html=hlm1)).add_to(m)
+            
+            custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30)) # bieu tuong mua cho tram do mua
             data_tichluy_html = data_tichluy.loc[location]
             # print(data_tichluy_html)
-            hlm,hlm1 = html_mua(data_tichluy_html,location)
-            iframe = folium.IFrame(html=hlm, width=300, height=300)
-            popup = folium.Popup(iframe, max_width=2650)
-            folium.Marker(coord,popup=popup,icon=folium.DivIcon(html=hlm1)).add_to(m)
+            data_tichluy_html = pd.DataFrame(data_tichluy_html).replace('nan','0.0')
+            html = data_tichluy_html.to_html(classes="table table-striped table-hover table-condensed table-responsive")
+            popup = folium.Popup(html=html, max_width=2650)
+            folium.Marker(coord,popup=popup,icon=custom_icon).add_to(m)
         else:
             custom_icon = folium.CustomIcon(icon_image="image/quocky.png", icon_size=(50, 70))
             folium.Marker(coord, popup=location,icon=custom_icon).add_to(m)
