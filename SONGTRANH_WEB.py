@@ -18,8 +18,15 @@ import PIL
 import vincent
 import json
 from PIL import ImageFile
+import base64
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+# Thêm nút tải dữ liệu
+def download_csv(data):
+    csv = data.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV File</a>'
+    return href
 @st.cache_data
 def xulysolieu_mua(df):
     # print(df)
@@ -138,7 +145,8 @@ def Mucnuoc_songtranh():
     data = data.replace(0,np.nan)
     data= data.interpolate(method='linear')
     data.reset_index(drop=False,inplace=True)  
-    return data['mucnuoc'].iloc[-1]
+    # data = data.dropna()
+    return data['mucnuoc'].iloc[-1],data['qxa'].iloc[-1],data['qden'].iloc[-1]
 @st.cache_data
 def dubao_songtranh():
     kt = datetime(2024,1,25)
@@ -161,7 +169,7 @@ def dubao_songtranh():
     data.reset_index(drop=False,inplace=True)  
     return data    
 
-@st.cache_data
+# @st.cache_data
 # def vebieudomua(df_mua):
 #     # fig, ax = plt.subplots()
 
@@ -194,7 +202,7 @@ def dubao_songtranh():
 def html_mua(df,tentram):
     # print(df)
     df = df.replace('nan','0.0')
-    print(df)
+    # print(df)
     html = f"""
     <h1 ><span style="color:black;">{tentram}</span></h1>
     <ul style="background-color: lightblue;">
@@ -250,7 +258,7 @@ def graphs_mua(df):
     return fig_mua
 @st.cache_data
 def graphs_mua_db(df):
-    print(df)
+    # print(df)
     #ve mua
     luongmua = df.sum().to_list()
     tram= df.columns.to_list()
@@ -364,13 +372,14 @@ def anh_mo_hinh_WRF():
                 image_file_path = '/home/disk2/KQ_WRF72h/' + ngay.strftime('%d%m%Y') + '/Hinh_{}z_72h/Luoi1/MayL1_13.png'.format(zz,zz) 
                 image_file = sftp.open(image_file_path,'rb')
                 image_data = image_file.read()
-                image_may = Image.open(io.BytesIO(image_data))                
+                image_may = Image.open(io.BytesIO(image_data))   
+                break             
             except:
                 pass
     sftp.close()
     client.close()
     return image_gio,image_nhiet,image_amap,image_may
-@st.cache_resource
+@st.cache_data
 def read_ftp_sever_image(tram):
         # Thông tin máy chủ FTP và đường dẫn đến file ftp://203.209.181.174/DAKDRINH/Image
         ftp_host = '113.160.225.111'
@@ -418,7 +427,7 @@ def read_ftp_sever_rada_image():
     sftp = client.open_sftp()
     filenames = sftp.listdir(remote_directory)
         # Get the latest filename
-    latest_filename = sorted(filenames)[-1]
+    latest_filename = sorted(filenames)[-2]
 
     # Open the image file directly from SFTP
     remote_filepath = f'{remote_directory}/{latest_filename}'
@@ -503,7 +512,7 @@ elif authentication_status == True:
     # st.write('----------------------------')
 
     # load muc nuoc
-    h_songtranh2 = Mucnuoc_songtranh()
+    h_songtranh2,qxa_ht,qden_ht = Mucnuoc_songtranh()
     data_dubao = dubao_songtranh()
     array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
     row_index = np.where(array_data['H']==float(h_songtranh2))
@@ -601,6 +610,8 @@ elif authentication_status == True:
     with st.expander("VIEW SỐ LIỆU MỰC NƯỚC - LƯU LƯỢNG"):
         showData=st.multiselect('Filter: ',solieu_hq.iloc[:,:7].columns,default=solieu_hq.iloc[:,:7].columns.tolist())
         st.dataframe(solieu_hq[showData],use_container_width=True)
+        if st.button('Tải dữ liệu H-Q'):
+            st.markdown(download_csv(solieu_hq[showData]), unsafe_allow_html=True)
 
     left, right = st.columns(2)  
     left.plotly_chart(graphs_h(solieu_hq[['Thời gian','Mực nước (m)']]),use_container_width=True)
@@ -610,6 +621,8 @@ elif authentication_status == True:
     with st.expander("VIEW SỐ LIỆU MƯA"):
         showData=st.multiselect('Filter: ',data_mua.columns,default=data_mua.columns.tolist()[1:])
         st.dataframe(data_tichluy.loc[showData].replace('nan','0.0'),use_container_width=True)
+        if st.button('Tải dữ liệu mưa'):
+            st.markdown(download_csv(data_tichluy.loc[showData].replace('nan','0.0')), unsafe_allow_html=True)
             
     # components.html(data_mua.to_html())
 
@@ -678,7 +691,16 @@ elif authentication_status == True:
             folium.Vega(data, width="50%", height="50%").add_to(popup)
         elif 'Trà Đốc' in location: # bieu tuong thuy chi cho tram do thuy van
             custom_icon = folium.CustomIcon(icon_image="image/songtranh.jpg", icon_size=(50, 70))
-            folium.Marker(coord, popup=location,icon=custom_icon).add_to(m)
+            thongso = pd.read_csv('data/songtranh2.csv')
+            thongso = thongso[['Thông số','Sông Tranh 2','Đơn vị']]
+            thongso.loc[thongso['Thông số'] == 'Mực nước', 'Sông Tranh 2'] = h_songtranh2
+            thongso.loc[thongso['Thông số'] == 'Q đến', 'Sông Tranh 2'] = qden_ht
+            thongso.loc[thongso['Thông số'] == 'Q điều tiết', 'Sông Tranh 2'] = qxa_ht
+            thongso.loc[thongso['Thông số'] == 'Q dự báo 24h', 'Sông Tranh 2'] = data_dubao['qdb'].loc[0]
+            thongso.loc[thongso['Thông số'] == 'Tỷ lệ hữu ích', 'Sông Tranh 2'] = '{:.1f}'.format(tyle)       
+            html = thongso.to_html(classes="table table-striped table-hover table-condensed table-responsive")
+            popup = folium.Popup(html=html, max_width=2650)
+            folium.Marker(coord,popup=popup,icon=custom_icon).add_to(m)
             # folium.Marker(coord, popup=location,icon=folium.Icon(color='blue')).add_to(m)            
         elif 'Việt Nam' not in location:
             # # custom_icon = folium.CustomIcon(icon_image="image/mua.jpg", icon_size=(30, 30)) # bieu tuong mua cho tram do mua
@@ -762,13 +784,10 @@ elif authentication_status == True:
             # image = get_image_from_ssh(ip, username, password, ssh_directory)
             try:
                 image = read_ftp_sever_rada_image()
-            except:
-                pass
-            if image:
-                # Hiển thị ảnh bằng cách sử dụng hàm 'image' của Streamlit
                 st.image(image, caption='Ảnh RaĐa Tam Kỳ hiện tại', use_column_width=True)
-            else:
+            except:
                 st.error("Không thể lấy ảnh từ máy chủ. Vui lòng kiểm tra lại thông tin.")
+
         map_windy = st.expander("Windy")
         map_windy._iframe(src='https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=15.356&lon=108.158&detailLat=15.333856148597976&detailLon=108.18099975585939',height=500)
     #theme
