@@ -1,0 +1,19 @@
+Matram,tentram,TAB
+552600,Hiep Duc,mua_oday_thuyvan
+552700,Cau Lau,mua_oday_thuyvan
+552800,Hien Vuong,mua_oday_thuyvan
+552900,Kham Duc,mua_oday_domua
+553000,Thanh My,mua_oday_thuyvan
+553100,Hoi Khach,mua_oday_thuyvan
+553200,Giao Thuy,mua_oday_thuyvan
+553300,Ai Nghia,mua_oday_thuyvan
+553500,Ky Phu,mua_oday_thuyvan
+553600,Nong Son,mua_oday_thuyvan
+553700,Hoi An,mua_oday_thuyvan
+556700,Tra My,mua_oday_khituong
+556800,Tam Ky,mua_oday_khituong
+556900,Cu Lao Cham,mua_oday_khituong
+558300,Tien Phuoc,mua_oday_domua
+558400,Nui Thanh,mua_oday_domua
+558500,Xuan Binh,mua_oday_domua
+558600,Thang Binh,mua_oday_domua

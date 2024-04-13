@@ -1,36 +1,27 @@
-import geopandas as gpd
-import folium
-import json
+import numpy as np
+from scipy.interpolate import interp1d
+import pandas as pd
+from scipy import interpolate
+def noisuy_hw(mucnuoc,cotH,cotw):
+    df = pd.read_excel('data/Thongso.xlsx',sheet_name='QH')
+    df.columns = df.loc[0]
+    df = df.iloc[4:,:]   
+    df = df.dropna(subset=[cotH])
+    # Tạo một hàm nội suy spline
+    spline = interpolate.InterpolatedUnivariateSpline(df[cotH], df[cotw])
 
-gdf = gpd.read_file(r'C:\Users\Admin\Desktop\HoAVuong\SongTranh2.shp')
+    # Tạo các giá trị mới của Z với khoảng cách 0.01
+    new_Z = np.arange(df[cotH].min(), df[cotH].max() + 0.01, 0.01)
 
-gdf_wgs84 = gdf.to_crs(epsg=4326)
+    # Tính toán giá trị W tương ứng với các giá trị Z mới
+    new_W = spline(new_Z)
 
-# with open('file_json.json', 'r') as f:
-#     data = json.load(f)
-# # print(gdf_wgs84)
-# m = folium.Map(location=[15.3371600,108.39232], 
-#                 zoom_start=6,
-#                 width='95%',  # Định dạng kích thước chiều rộng
-#                 height='100%',# Định dạng kích thước chiều cao
-#                 crs= 'EPSG3857'
-#             )
-# folium.GeoJson(data=data, name='geometry').add_to(m)
-# m.show_in_browser()
-# # # # print(gdf)
-
-j = gdf_wgs84.to_json()
-# Lưu dữ liệu vào tệp với tên file_json.json
-with open('SongTranh2.json', 'w') as f:
-    json.dump(j, f)
-# print(j)
-# for _, r in gdf.iterrows():
-#     #without simplifying the representation of each borough, the map might not be displayed
-#     #sim_geo = gpd.GeoSeries(r['geometry'])
-#     sim_geo = gpd.GeoSeries(r['geometry']).simplify(tolerance=0.001)
-#     geo_j = sim_geo.to_json()
-#     geo_j = folium.GeoJson(data=geo_j,
-#                            style_function=lambda x: {'fillColor': 'orange'})
-#     # folium.Popup(r['BoroName']).add_to(geo_j)
-#     geo_j.add_to(m)
-# m.show_in_browser()
+    # In ra kết quả
+    result_df = pd.DataFrame({'Z': new_Z, 'W': new_W})
+    result_df = result_df.applymap("{0:.2f}".format)
+    # result_df.to_csv('songtranh222.csv')
+    # print(result_df[result_df['Z']==mucnuoc]['W'])
+    return result_df[result_df['Z']==str(mucnuoc)]['W'].values[0]
+    
+a = noisuy_hw(170.96,'Z','W')
+print(a)

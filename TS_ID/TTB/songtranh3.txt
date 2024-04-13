@@ -1,5 +1,14 @@
 Matram,tentram,TAB
-5ST,mucnuoc,ho_dakdrinh_mucnuoc
-5ST,qxa,ho_dakdrinh_qdieutiet
-5ST,qden,ho_dakdrinh_qve
+5ST,mucnuoc_st,ho_dakdrinh_mucnuoc
+5ST,qxa_st,ho_dakdrinh_qdieutiet
+5ST,qden_st,ho_dakdrinh_qve
 qdubao,qdb,ho_dakdrinh_mucnuoc
+5AV,mucnuoc_av,ho_dakdrinh_mucnuoc
+5AV,qxa_av,ho_dakdrinh_qdieutiet
+5AV,qden_av,ho_dakdrinh_qve
+5SB2,mucnuoc_sb2,ho_dakdrinh_mucnuoc
+5SB2,qxa_sb2,ho_dakdrinh_qdieutiet
+5SB2,qden_sb2,ho_dakdrinh_qve
+5SB4,mucnuoc_sb4,ho_dakdrinh_mucnuoc
+5SB4,qxa_sb4,ho_dakdrinh_qdieutiet
+5SB4,qden_sb4,ho_dakdrinh_qve

@@ -1,0 +1,14 @@
+Matram,tentram,TAB
+555300,Dong Tam,mua_oday_thuyvan
+555400,Mai Hoa,mua_oday_thuyvan
+555500,Kien Giang,mua_oday_thuyvan
+555600,Dong Hoi meteo,mua_oday_khituong
+555700,Phong Nha,mua_oday_thuyvan
+555800,Tan My,mua_oday_thuyvan
+555900,Tan Lam,mua_oday_thuyvan
+556100,Le Thuy,mua_oday_khituong
+557500,Tuyen Hoa,mua_oday_khituong
+557600,Dong Hoi idro,mua_oday_thuyvan
+557700,Ba Don,mua_oday_khituong
+559100,Minh Hoa,mua_oday_domua
+559200,Truong Son,mua_oday_thuyvan

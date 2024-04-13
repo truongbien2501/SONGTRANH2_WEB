@@ -20,7 +20,29 @@ import json
 from PIL import ImageFile
 from streamlit_option_menu import option_menu
 import base64
+from scipy import interpolate
 st.set_option('deprecation.showPyplotGlobalUse', False)
+# noi suy w
+def noisuy_hw(mucnuoc,cotH,cotw):
+    df = pd.read_excel('data/Thongso.xlsx',sheet_name='QH')
+    df.columns = df.loc[0]
+    df = df.iloc[4:,:]   
+    df = df.dropna(subset=[cotH])
+    # Tạo một hàm nội suy spline
+    spline = interpolate.InterpolatedUnivariateSpline(df[cotH], df[cotw])
+
+    # Tạo các giá trị mới của Z với khoảng cách 0.01
+    new_Z = np.arange(df[cotH].min(), df[cotH].max() + 0.01, 0.01)
+
+    # Tính toán giá trị W tương ứng với các giá trị Z mới
+    new_W = spline(new_Z)
+
+    # In ra kết quả
+    result_df = pd.DataFrame({'Z': new_Z, 'W': new_W})
+    result_df = result_df.applymap("{0:.2f}".format)
+    # result_df.to_csv('songtranh222.csv')
+    # print(result_df[result_df['Z']==mucnuoc]['W'])
+    return result_df[result_df['Z']==str(mucnuoc)]['W'].values[0]
 
 # Thêm nút tải dữ liệu
 def download_csv(data):
@@ -210,7 +232,7 @@ def Mucnuoc_songtranh():
     data= data.interpolate(method='linear')
     data.reset_index(drop=False,inplace=True)  
     # data = data.dropna()
-    return data['mucnuoc'].iloc[-1],data['qxa'].iloc[-1],data['qden'].iloc[-1]
+    return data
 @st.cache_data
 def dubao_songtranh():
     kt = datetime(2024,1,25)
@@ -502,54 +524,53 @@ elif authentication_status == True:
         # st.write('----------------------------')
 
         # load muc nuoc
-        h_songtranh2,qxa_ht,qden_ht = Mucnuoc_songtranh()
+        # h_songtranh2,qxa_ht,qden_ht = Mucnuoc_songtranh()
+        data_mucnuoc = Mucnuoc_songtranh()
+        
+        # tinh thong so song tranh
+        h_songtranh2 = data_mucnuoc['mucnuoc_st'].iloc[-1]
+        qxa_ht = data_mucnuoc['qxa_st'].iloc[-1]
+        qden_ht = data_mucnuoc['qden_st'].iloc[-1]
+        # print(h_songtranh2,qxa_ht,qden_ht)
         data_dubao = dubao_songtranh()
         array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
         row_index = np.where(array_data['H']==float(h_songtranh2))
         dungtich_songtranh2 = str(array_data['W'][row_index])[1:-1]
-        tyle = (float(dungtich_songtranh2)/733.4)*100
+        tyle_st = (float(dungtich_songtranh2)/733.4)*100
+        
+        #tinh thong so a vuong
+        dungtich_av = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]),'Z3','W3')
+        dungtich_sb2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'Z1','W1')
+        dungtich_sb4 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1]),'Z2','W2')
+     
+     
+        tyle_av = (float(dungtich_av)/343.55)*100
+        tyle_sb2 = (float(dungtich_sb2)/94.3)*100
+        tyle_sb4 = (float(dungtich_sb4)/510.8)*100
+                        
         # tinh dung tich cac ho chua
-        data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung 2"],
-                "Mực nước(m)": ['{:.1f}'.format(h_songtranh2), '375.25', '597.86'],
-                "Dung tích (tr/m3)": [dungtich_songtranh2, "-", "-"],
-                "Tỷ lệ(%)": ['{:.1f}'.format(tyle), '-', "-"],
-                "MNDBT": ['175', '380', '605'],
-                "MN_CHẾT": ['145', '340', '565']
+        data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung 2","Sông Bung 4"],
+                "Mực nước(m)": ['{:.1f}'.format(h_songtranh2), '{:.1f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]), '{:.1f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'{:.1f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1])],
+                "Dung tích (tr/m3)": [dungtich_songtranh2, dungtich_av, dungtich_sb2,dungtich_sb4],
+                "Tỷ lệ(%)": ['{:.1f}'.format(tyle_st), '{:.1f}'.format(tyle_av), '{:.1f}'.format(tyle_sb2),'{:.1f}'.format(tyle_sb4)],
+                "MNDBT": ['175', '380', '605','222.5'],
+                "MN_CHẾT": ['145', '340', '565','205']
                 }
 
         # Tạo DataFrame từ dữ liệu
         df = pd.DataFrame(data)
         st.dataframe(df,use_container_width=True)
 
+
         # Tạo hộp văn bản và lấy giá trị người dùng nhập vào
         bd,bd_gio, kt,kt_gio = st.columns(4)
         # bd_gio, kt_gio = st.columns(2)
-
-        ngaybd = bd.date_input("Ngày bắt đầu",value=datetime((datetime.now() - timedelta(days=5)).year,(datetime.now() - timedelta(days=5)).month,(datetime.now() - timedelta(days=5)).day))
-        gio_batdau = bd_gio.time_input('Giờ bắt đầu',value=datetime.strptime("23:00", "%H:%M"))
-        
-        # Định dạng CSS tùy chỉnh cho phần tử date input
-        custom_css = """
-        <style>
-            /* Thêm CSS tùy chỉnh cho phần tử date input */
-            .st-ec {
-                background-color: lightblue; /* Màu nền */
-                color: black; /* Màu chữ */
-                border: 2px solid lightblue; /* Viền */
-                border-radius: 5px; /* Góc bo tròn */
-            }
-        </style>
-        """
-        # Nhúng mã CSS tùy chỉnh vào ứng dụng
-        st.markdown(custom_css, unsafe_allow_html=True)
-
-        # Định dạng CSS tùy chỉnh cho phần tử date input
         custom_css = """
         <style>
             /* Thêm CSS tùy chỉnh cho date input */
             .st-bu {
                 background-color: #ffcc00; /* Màu nền */
-                color: #000; /* Màu chữ */
+                color: #100; /* Màu chữ */
                 border: 2px solid #ffcc00; /* Viền */
                 border-radius: 50px; /* Góc bo tròn */
             }
@@ -557,6 +578,10 @@ elif authentication_status == True:
         """
         # # Nhúng mã CSS tùy chỉnh vào ứng dụng
         st.markdown(custom_css, unsafe_allow_html=True)
+        ngaybd = bd.date_input("Ngày bắt đầu",value=datetime((datetime.now() - timedelta(days=5)).year,(datetime.now() - timedelta(days=5)).month,(datetime.now() - timedelta(days=5)).day))
+        gio_batdau = bd_gio.time_input('Giờ bắt đầu',value=datetime.strptime("23:00", "%H:%M"))
+        
+
         # Trong cột thứ hai, tạo lịch để chọn ngày kết thúc
         ngaykt = kt.date_input("Ngày kết thúc",value=datetime(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour))
         gio_ketthuc = kt_gio.time_input('Giờ kết thúc',value=datetime.strptime(datetime.now().strftime("%H:00"),"%H:00"))
@@ -696,7 +721,7 @@ elif authentication_status == True:
                 thongso.loc[thongso['Thông số'] == 'Q đến', 'Sông Tranh 2'] = qden_ht
                 thongso.loc[thongso['Thông số'] == 'Q điều tiết', 'Sông Tranh 2'] = qxa_ht
                 thongso.loc[thongso['Thông số'] == 'Q dự báo 24h', 'Sông Tranh 2'] = data_dubao['qdb'].loc[0]
-                thongso.loc[thongso['Thông số'] == 'Tỷ lệ hữu ích', 'Sông Tranh 2'] = '{:.1f}'.format(tyle)       
+                thongso.loc[thongso['Thông số'] == 'Tỷ lệ hữu ích', 'Sông Tranh 2'] = '{:.1f}'.format(tyle_st)       
                 html = thongso.to_html(classes="table table-striped table-hover table-condensed table-responsive")
                 popup = folium.Popup(html=html, max_width=2650)
                 folium.Marker(coord,popup=popup,icon=custom_icon).add_to(m)
@@ -750,6 +775,10 @@ elif authentication_status == True:
         unsafe_allow_html=True
     )
         with col1:
+            map_expander = st.expander("Trạm mưa lưu vực")
+            with map_expander:
+                folium_static(m,width=550)
+                
             with st.expander ("Bản tin dự báo"):
                 # placeholder = st.text_input("Chọn loại bản tin", "Mời chọn tin", key="placeholder")
                 tin_loai = st.selectbox("Chọn loại bản tin", ["Xin mời chọn.....","Hạn ngắn", "Hạn vừa", "Tin Lũ"])
@@ -768,11 +797,6 @@ elif authentication_status == True:
                     # for img in images:
                     #     st.image(img)
                 
-            map_expander = st.expander("Trạm mưa lưu vực")
-
-            with map_expander:
-                folium_static(m,width=550)
-
         with col2:
             with st.expander ("RADA TAM KỲ"):
                 # ip = '203.209.181.171'
