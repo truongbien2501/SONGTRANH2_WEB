@@ -201,3 +201,92 @@ def H_excel():
     df = df[['time','Htd','Hdb','qtd','qdb']]
     return df,df_lu
 # H_excel()
+
+def TTB_API_mua(pth):
+    kt = datetime.now()
+    kt = datetime(kt.year,kt.month,kt.day,kt.hour,kt.minute)
+    bd = kt - timedelta(days=10)
+    data = pd.DataFrame()
+    data['time'] = pd.date_range(bd,kt,freq='min')
+    tram = pd.read_csv(pth)
+    # tram['TAB1'] = tram['TAB'].replace(['mua_oday_thuyvan', 'mua_oday_khituong','mua_oday_domua'], 'ODA')
+    # order = ['ODA', 'hanquoc_mua', 'vrain_mua', 'mua_wb5']
+    # tram['TAB_category'] = pd.Categorical(tram['TAB1'], categories=order, ordered=True)
+    # tram = tram.sort_values(by=['TAB_category', 'tentram'])
+    # tram = tram.drop(columns=['TAB_category','TAB1'])
+    # print(tram)
+    for item in zip(tram.Matram,tram.tentram,tram.TAB):
+    # print(item[0],item[2],item[1])
+        pth = 'http://113.160.225.84:2018/API_TTB/XEM/solieu.php?matram={}&ten_table={}&sophut=1&tinhtong=0&thoigianbd=%27{}%2000:00:00%27&thoigiankt=%27{}%2023:59:00%27'
+        pth = pth.format(item[0],item[2],bd.strftime('%Y-%m-%d'),kt.strftime('%Y-%m-%d'))
+        df = pd.read_html(pth)
+        df[0].rename(columns={"thoi gian":'time','so lieu':item[1]},inplace=True)
+        df = df[0].drop('Ma tram',axis=1)
+        df['time'] = pd.to_datetime(df['time'])
+        data = data.merge(df,how='left',on='time')
+    data.set_index('time',inplace=True)
+    muagio = data.rolling(60,min_periods=1).sum()
+    muagio = muagio[muagio.index.minute == 0]
+    epsilon = 1e-10
+    muagio = muagio.applymap(lambda x: 0 if abs(x) < epsilon else x)    
+    muagio =muagio.astype(float)
+    return muagio
+
+def xulysolieu_mua(df):
+    # now = datetime.now()
+    
+    # print(df)
+    df_xl = pd.DataFrame()
+    # Lấy danh sách tên cột từ df1
+    column_names = df.columns
+    # Tạo DataFrame mới với các tên cột từ df1
+    df_xl = pd.DataFrame(columns=column_names)
+    
+    #mua1h
+    df_xl = pd.concat([df_xl, df.tail(1)])
+    # print(df_xl.index)
+    # df_xl.loc[0].values[0] = 'Mưa 1h qua'
+    # # mưa2h
+    mua2h =  df.rolling(2,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    # # mưa3h
+    mua2h =  df.rolling(3,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    
+    # # mưa4h
+    mua2h =  df.rolling(4,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    # # mưa6h
+    mua2h =  df.rolling(6,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    
+    # # mưa12h
+    mua2h =  df.rolling(12,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    # # mưa24h
+    mua2h =  df.rolling(24,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    
+    # # mưa48h
+    mua2h =  df.rolling(48,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    
+    # # mưa24h
+    mua2h =  df.rolling(72,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+        
+    # # mưa24h
+    mua2h =  df.rolling(72+24,min_periods=1).sum()
+    df_xl = pd.concat([df_xl, mua2h.tail(1)])
+    
+    df_xl.reset_index(drop=False,inplace=True)
+    gt_dq = ['1h qua','2h qua','3h qua','4h qua','6h qua','12h qua','24h qua', '48h qua', '72h qua','4ngay qua']
+    df_xl.insert(0,'Mưa đã qua',gt_dq)
+    df_xl = df_xl.drop('index', axis=1)
+    df_xl = df_xl.set_index('Mưa đã qua')
+    df_xl = df_xl.applymap("{0:.1f}".format)
+    df_xl = df_xl.transpose()
+    df_xl.reset_index(drop=False,inplace=True)
+    df_xl.rename(columns={'index':'Tram'},inplace=True)
+    # print(df_xl)
+    return df_xl

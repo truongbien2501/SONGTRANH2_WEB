@@ -1,0 +1,238 @@
+Ma tram,ten tram,TAB,Yeu To,tinh
+91560,Tam Tra,hanquoc_mua,Mua,Quang Nam
+91560,Tam Tra,hanquoc_nguon,Nguon dataloger,Quang Nam
+91561,Nui Thanh 1,hanquoc_mua,Mua,Quang Nam
+91561,Nui Thanh 1,hanquoc_nguon,Nguon dataloger,Quang Nam
+91562,Thang Binh 1,hanquoc_mua,Mua,Quang Nam
+91562,Thang Binh 1,hanquoc_nguon,Nguon dataloger,Quang Nam
+91563,TrHy,hanquoc_mua,Mua,Quang Nam
+91563,TrHy,hanquoc_nguon,Nguon dataloger,Quang Nam
+91564,LaDee,hanquoc_mua,Mua,Quang Nam
+91564,LaDee,hanquoc_nguon,Nguon dataloger,Quang Nam
+91565,Tra Don,hanquoc_mua,Mua,Quang Nam
+91565,Tra Don,hanquoc_nguon,Nguon dataloger,Quang Nam
+14693,Binh Phu,vrain_mua,Mua,Quang Nam
+148245,Tra Kot,vrain_mua,Mua,Quang Nam
+226650,Van Phong Thuong Truc QN,vrain_mua,Mua,Quang Nam
+226653,Phuoc Ninh,vrain_mua,Mua,Quang Nam
+228925,Phuoc Chanh,vrain_mua,Mua,Quang Nam
+228926,Tien Phong,vrain_mua,Mua,Quang Nam
+228927,Dai Dong,vrain_mua,Mua,Quang Nam
+228929,Duy Trung,vrain_mua,Mua,Quang Nam
+228930,Que Luu,vrain_mua,Mua,Quang Nam
+266249,Zuoih,vrain_mua,Mua,Quang Nam
+354128,Que Phuoc,vrain_mua,Mua,Quang Nam
+354578,Thang Phuoc,vrain_mua,Mua,Quang Nam
+355827,Dien Hong,vrain_mua,Mua,Quang Nam
+36614,Khanh Hiep,vrain_mua,Mua,Quang Nam
+36623,Tien Ha,vrain_mua,Mua,Quang Nam
+430020,Dap Ha Thanh,vrain_mua,Mua,Quang Nam
+436,Binh Lam,vrain_mua,Mua,Quang Nam
+437,Que Loc,vrain_mua,Mua,Quang Nam
+442,Tam Tra,vrain_mua,Mua,Quang Nam
+445,Dai Hiep,vrain_mua,Mua,Quang Nam
+492430,Tra Leng,vrain_mua,Mua,Quang Nam
+552600,Hiep Duc,mua_oday_thuyvan,Mua,Quang Nam
+552600,Hiep Duc,mucnuoc_oday,Muc Nuoc,Quang Nam
+552600,Hiep Duc,nguondataloger_oday,Nguon dataloger,Quang Nam
+552600,Hiep Duc,nguonsieuam_oday,Nguon Sieu Am,Quang Nam
+552600,Hiep Duc,nhietdo_sieuam_oday,Nhiet Do,Quang Nam
+552700,Cau Lau,mua_oday_thuyvan,Mua,Quang Nam
+552700,Cau Lau,mucnuoc_oday,Muc Nuoc,Quang Nam
+552700,Cau Lau,nguondataloger_oday,Nguon dataloger,Quang Nam
+552800,Hien Vuong,mua_oday_thuyvan,Mua,Quang Nam
+552800,Hien Vuong,mucnuoc_oday,Muc Nuoc,Quang Nam
+552800,Hien Vuong,nguondataloger_oday,Nguon dataloger,Quang Nam
+552900,Kham Duc,mua_oday_domua,Mua,Quang Nam
+552900,Kham Duc,nguondataloger_oday,Nguon dataloger,Quang Nam
+553000,Thanh My,mua_oday_thuyvan,Mua,Quang Nam
+553000,Thanh My,mucnuoc_oday,Muc Nuoc,Quang Nam
+553000,Thanh My,nguondataloger_oday,Nguon dataloger,Quang Nam
+553000,Thanh My,nguonsieuam_oday,Nguon Sieu Am,Quang Nam
+553000,Thanh My,nhietdo_sieuam_oday,Nhiet Do,Quang Nam
+553100,Hoi Khach,mua_oday_thuyvan,Mua,Quang Nam
+553100,Hoi Khach,mucnuoc_oday,Muc Nuoc,Quang Nam
+553100,Hoi Khach,nguondataloger_oday,Nguon dataloger,Quang Nam
+553200,Giao Thuy,mua_oday_thuyvan,Mua,Quang Nam
+553200,Giao Thuy,mucnuoc_oday,Muc Nuoc,Quang Nam
+553200,Giao Thuy,nguondataloger_oday,Nguon dataloger,Quang Nam
+553300,Ai Nghia,mua_oday_thuyvan,Mua,Quang Nam
+553300,Ai Nghia,mucnuoc_oday,Muc Nuoc,Quang Nam
+553300,Ai Nghia,nguondataloger_oday,Nguon dataloger,Quang Nam
+553500,Ky Phu,mua_oday_thuyvan,Mua,Quang Nam
+553500,Ky Phu,mucnuoc_oday,Muc Nuoc,Quang Nam
+553500,Ky Phu,nguondataloger_oday,Nguon dataloger,Quang Nam
+553600,Nong Son,mua_oday_thuyvan,Mua,Quang Nam
+553600,Nong Son,mucnuoc_oday,Muc Nuoc,Quang Nam
+553600,Nong Son,nguondataloger_oday,Nguon dataloger,Quang Nam
+553700,Hoi An,mua_oday_thuyvan,Mua,Quang Nam
+553700,Hoi An,mucnuoc_oday,Muc Nuoc,Quang Nam
+553700,Hoi An,nguondataloger_oday,Nguon dataloger,Quang Nam
+556700,Tra My,doam_oday,Do Am,Quang Nam
+556700,Tra My,huonggioavg10_oday,Huong Gio AVG10,Quang Nam
+556700,Tra My,huonggiomax60_oday,Huong Gio Max 60,Quang Nam
+556700,Tra My,huonggio_oday,Huong Gio,Quang Nam
+556700,Tra My,khiap_oday,Khi Ap,Quang Nam
+556700,Tra My,mua_oday_khituong,Mua,Quang Nam
+556700,Tra My,nguondataloger_oday,Nguon dataloger,Quang Nam
+556700,Tra My,nhietdo_oday,Nhiet Do,Quang Nam
+556700,Tra My,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Nam
+556700,Tra My,tocdogio_max60_oday,Toc Do Gio max 60,Quang Nam
+556700,Tra My,tocdogio_oday,Toc Do Gio,Quang Nam
+556800,Tam Ky,doam_oday,Do Am,Quang Nam
+556800,Tam Ky,huonggioavg10_oday,Huong Gio AVG10,Quang Nam
+556800,Tam Ky,huonggiomax60_oday,Huong Gio Max 60,Quang Nam
+556800,Tam Ky,huonggio_oday,Huong Gio,Quang Nam
+556800,Tam Ky,khiap_oday,Khi Ap,Quang Nam
+556800,Tam Ky,mua_oday_khituong,Mua,Quang Nam
+556800,Tam Ky,nguondataloger_oday,Nguon dataloger,Quang Nam
+556800,Tam Ky,nhietdo_oday,Nhiet Do,Quang Nam
+556800,Tam Ky,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Nam
+556800,Tam Ky,tocdogio_max60_oday,Toc Do Gio max 60,Quang Nam
+556800,Tam Ky,tocdogio_oday,Toc Do Gio,Quang Nam
+556900,Cu Lao Cham,doam_oday,Do Am,Quang Nam
+556900,Cu Lao Cham,huonggioavg10_oday,Huong Gio AVG10,Quang Nam
+556900,Cu Lao Cham,huonggiomax60_oday,Huong Gio Max 60,Quang Nam
+556900,Cu Lao Cham,huonggio_oday,Huong Gio,Quang Nam
+556900,Cu Lao Cham,khiap_oday,Khi Ap,Quang Nam
+556900,Cu Lao Cham,mua_oday_khituong,Mua,Quang Nam
+556900,Cu Lao Cham,nguondataloger_oday,Nguon dataloger,Quang Nam
+556900,Cu Lao Cham,nhietdo_oday,Nhiet Do,Quang Nam
+556900,Cu Lao Cham,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Nam
+556900,Cu Lao Cham,tocdogio_max60_oday,Toc Do Gio max 60,Quang Nam
+556900,Cu Lao Cham,tocdogio_oday,Toc Do Gio,Quang Nam
+558300,Tien Phuoc,mua_oday_domua,Mua,Quang Nam
+558300,Tien Phuoc,nguondataloger_oday,Nguon dataloger,Quang Nam
+558400,Nui Thanh,mua_oday_domua,Mua,Quang Nam
+558400,Nui Thanh,nguondataloger_oday,Nguon dataloger,Quang Nam
+558500,Xuan Binh,mua_oday_domua,Mua,Quang Nam
+558500,Xuan Binh,nguondataloger_oday,Nguon dataloger,Quang Nam
+558600,Thang Binh,mua_oday_domua,Mua,Quang Nam
+558600,Thang Binh,nguondataloger_oday,Nguon dataloger,Quang Nam
+577172,Phuoc Thanh,vrain_mua,Mua,Quang Nam
+602147,Duy Son,vrain_mua,Mua,Quang Nam
+611821,Cau Vinh Dien,vrain_mua,Mua,Quang Nam
+618900,Cau Huong An,vrain_mua,Mua,Quang Nam
+804318,Dai Chanh,vrain_mua,Mua,Quang Nam
+86012,Hoi An,young_dd,Huong Gio TB 2 phut,Quang Nam
+86012,Hoi An,young_dd2m,Huong Gio max 2 phut,Quang Nam
+86012,Hoi An,young_dd2s,Huong Gio max 2 giay,Quang Nam
+86012,Hoi An,young_ff,Toc Do Gio TB 2 Phut,Quang Nam
+86012,Hoi An,young_ff2m,Toc Do Gio max 2 phut,Quang Nam
+86493,Tam Ky,young_dd,Huong Gio TB 2 phut,Quang Nam
+86493,Tam Ky,young_dd2m,Huong Gio max 2 phut,Quang Nam
+86493,Tam Ky,young_dd2s,Huong Gio max 2 giay,Quang Nam
+86493,Tam Ky,young_ff,Toc Do Gio TB 2 Phut,Quang Nam
+86493,Tam Ky,young_ff2m,Toc Do Gio max 2 phut,Quang Nam
+86493,Tam Ky,young_ff2s,Toc Do Gio max 2 giay,Quang Nam
+896821,Ka Dang,vrain_mua,Mua,Quang Nam
+906221,DM Ho Trung Loc,vrain_mua,Mua,Quang Nam
+909143,Cau Ha Tan,vrain_mua,Mua,Quang Nam
+920001,Tien Lanh,vrain_mua,Mua,Quang Nam
+920002,Phuoc Cong,vrain_mua,Mua,Quang Nam
+920003,Dai Son,vrain_mua,Mua,Quang Nam
+920004,Ho Dong Tien,vrain_mua,Mua,Quang Nam
+920006,Ho Nuoc Ron,vrain_mua,Mua,Quang Nam
+920007,Ho Phu Loc,vrain_mua,Mua,Quang Nam
+920008,Ho An Long,vrain_mua,Mua,Quang Nam
+920009,Tam Lanh,vrain_mua,Mua,Quang Nam
+920010,Phuoc Hiep,vrain_mua,Mua,Quang Nam
+920011,Khu TDC Tak Pat xa Tra Leng,vrain_mua,Mua,Quang Nam
+921782,DM Ho Viet An,vrain_mua,Mua,Quang Nam
+924774,Tra Giap,vrain_mua,Mua,Quang Nam
+928953,DM ho Phu Ninh,vrain_mua,Mua,Quang Nam
+9734,Tra Giap,vrain_mua,Mua,Quang Nam
+974046,Song Tra,vrain_mua,Mua,Quang Nam
+ARG0000035,Que Son,mua_wb5,Mua,Quang Nam
+ARG0000035,Que Son,nguondataloger_wb5,Nguon dataloger,Quang Nam
+Avuong,A Vuong,luuluong_wb8,Luu Luong,Quang Nam
+Avuong,A Vuong,muathuyvan_wb8,Mua,Quang Nam
+Avuong,A Vuong,mucnuoc_wb8,Muc Nuoc,Quang Nam
+Avuong,A Vuong,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+AWS0000027,Kham Duc,cuongdobucxa_wb5,Cuong Do Buc Xa,Quang Nam
+AWS0000027,Kham Duc,doam_wb5,Do Am,Quang Nam
+AWS0000027,Kham Duc,huonggio_avg10_wb5,Huong Gio AVG10,Quang Nam
+AWS0000027,Kham Duc,huonggio_max1phut_wb5,Huong Gio max 1 Phut,Quang Nam
+AWS0000027,Kham Duc,muakhituong_wb5,Mua,Quang Nam
+AWS0000027,Kham Duc,nguondataloger_wb5,Nguon dataloger,Quang Nam
+AWS0000027,Kham Duc,nhietdo_wb5,Nhiet Do,Quang Nam
+AXan2,AXan2,mua_wb8,Mua,Quang Nam
+AXan2,AXan2,nguonmua_wb8,Nguon dataloger,Quang Nam
+BhaLee,BhaLee,mua_wb8,Mua,Quang Nam
+BhaLee,BhaLee,nguonmua_wb8,Nguon dataloger,Quang Nam
+CuaDai,Cua Dai,mucnuoc_wb8,Muc Nuoc,Quang Nam
+dakmi4,Dakmi4,muathuyvan_wb8,Mua,Quang Nam
+dakmi4,Dakmi4,mucnuoc_wb8,Muc Nuoc,Quang Nam
+Dang,Dang,mua_wb8,Mua,Quang Nam
+Dang,Dang,nguonmua_wb8,Nguon dataloger,Quang Nam
+hatan,Ha Tan,luuluong_wb8,Luu Luong,Quang Nam
+hatan,Ha Tan,muathuyvan_wb8,Mua,Quang Nam
+hatan,Ha Tan,mucnuoc_wb8,Muc Nuoc,Quang Nam
+hatan,Ha Tan,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+HiepDuc,Hiep Duc,luuluong_wb8,Luu Luong,Quang Nam
+HiepDuc,Hiep Duc,mucnuoc_wb8,Muc Nuoc,Quang Nam
+HiepDuc,Hiep Duc,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+hosongbung2,Ho Song Bung 2,luuluong_wb8,Luu Luong,Quang Nam
+hosongbung2,Ho Song Bung 2,muathuyvan_wb8,Mua,Quang Nam
+hosongbung2,Ho Song Bung 2,mucnuoc_wb8,Muc Nuoc,Quang Nam
+hosongbung2,Ho Song Bung 2,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+Nongson,Nong Son,luuluong_wb8,Luu Luong,Quang Nam
+Nongson,Nong Son,mucnuoc_wb8,Muc Nuoc,Quang Nam
+Nongson,Nong Son,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+nuocchoong,Nuoc Choong,luuluong_wb8,Luu Luong,Quang Nam
+nuocchoong,Nuoc Choong,mucnuoc_wb8,Muc Nuoc,Quang Nam
+nuocchoong,Nuoc Choong,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+PhuocMy1,Phuoc My 1,mua_wb8,Mua,Quang Nam
+PhuocMy1,Phuoc My 1,nguonmua_wb8,Nguon dataloger,Quang Nam
+PhuocThanh2,Phuoc Thanh 2,mua_wb8,Mua,Quang Nam
+PhuocThanh2,Phuoc Thanh 2,nguonmua_wb8,Nguon dataloger,Quang Nam
+PhuocTra1,Phuoc Tra 1,mua_wb8,Mua,Quang Nam
+PhuocTra1,Phuoc Tra 1,nguonmua_wb8,Nguon dataloger,Quang Nam
+SongKon,Song Kon,mua_wb8,Mua,Quang Nam
+SongKon,Song Kon,nguonmua_wb8,Nguon dataloger,Quang Nam
+songthanh,Song Thanh,luuluong_wb8,Luu Luong,Quang Nam
+songthanh,Song Thanh,muathuyvan_wb8,Mua,Quang Nam
+songthanh,Song Thanh,mucnuoc_wb8,Muc Nuoc,Quang Nam
+songthanh,Song Thanh,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+TaBhing,TaBhing,mua_wb8,Mua,Quang Nam
+TaBhing,TaBhing,nguonmua_wb8,Nguon dataloger,Quang Nam
+TBC604100,Dak Pring 2,vrain_mua,Mua,Quang Nam
+TDSB2_dm1sb2,Nha may Song Sung 2,chuyendung_mua,Mua,Quang Nam
+TDSB2_dm2sb2,Ga Ri Song bung 2,chuyendung_mua,Mua,Quang Nam
+TDSB2_dm3sb2,Dap Song Bung 2,chuyendung_mua,Mua,Quang Nam
+TDSB2_dm4sb2,TrHy Song Bung 2,chuyendung_mua,Mua,Quang Nam
+TDSB2_dnhlsb2,Ha luu Song Bung 2,chuyendung_mucnuoc,Muc Nuoc,Quang Nam
+TDSB2_dntlsb2,Thuong luu Song Bung 2,chuyendung_mucnuoc,Muc Nuoc,Quang Nam
+TDSB4_dnhksb4,Ha luu Song Bung 4,chuyendung_mucnuoc,Muc Nuoc,Quang Nam
+TDSB4_dntlsb4,Thuong luu Song Bung 4,chuyendung_mucnuoc,Muc Nuoc,Quang Nam
+TDSB4_MUA01SB4,Dap Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA02SB4,Chaval Nha dieu hanh Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA03SB4,Zuoih truong Topoo Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA04SB4,Lang Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA05SB4,Don bien phong nam giang La Dee Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA06SB4,Dua khau Nam Giang laDee Song Bung 4,chuyendung_mua,Mua,Quang Nam
+TDSB4_MUA07SB4,LaDeeUBNDSong Bung 4,chuyendung_mua,Mua,Quang Nam
+thaccan,Thac Can,luuluong_wb8,Luu Luong,Quang Nam
+thaccan,Thac Can,muathuyvan_wb8,Mua,Quang Nam
+thaccan,Thac Can,mucnuoc_wb8,Muc Nuoc,Quang Nam
+thaccan,Thac Can,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+ThanhMy,Thanh My,luuluong1_wb8,Luu Luong 1,Quang Nam
+ThanhMy,Thanh My,luuluong_wb8,Luu Luong,Quang Nam
+ThanhMy,Thanh My,mucnuoc1_wb8,Muc Nuoc 1,Quang Nam
+ThanhMy,Thanh My,mucnuoc_wb8,Muc Nuoc,Quang Nam
+ThanhMy,Thanh My,tocdodongchay1_wb8,Toc do dong chay 1,Quang Nam
+ThanhMy,Thanh My,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+TIENPHUOC,Tien Phuoc,luuluong_wb8,Luu Luong,Quang Nam
+TIENPHUOC,Tien Phuoc,muathuyvan_wb8,Mua,Quang Nam
+TIENPHUOC,Tien Phuoc,mucnuoc_wb8,Muc Nuoc,Quang Nam
+TIENPHUOC,Tien Phuoc,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+TraGiac1,Tra Giac 1,mua_wb8,Mua,Quang Nam
+TraGiac1,Tra Giac 1,nguonmua_wb8,Nguon dataloger,Quang Nam
+TraNam,Tra Nam,mua_wb8,Mua,Quang Nam
+TraNam,Tra Nam,nguonmua_wb8,Nguon dataloger,Quang Nam
+tratap,Tra Tap,luuluong_wb8,Luu Luong,Quang Nam
+tratap,Tra Tap,muathuyvan_wb8,Mua,Quang Nam
+tratap,Tra Tap,mucnuoc_wb8,Muc Nuoc,Quang Nam
+tratap,Tra Tap,tocdodongchay_wb8,Toc do dong chay,Quang Nam
+Zuoih,Zuoih,mua_wb8,Mua,Quang Nam
+Zuoih,Zuoih,nguonmua_wb8,Nguon dataloger,Quang Nam

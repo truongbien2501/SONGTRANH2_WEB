@@ -380,6 +380,8 @@ def graphs_h(df_h):
     fig_mucnuoc.update_traces(mode="lines")
     fig_mucnuoc.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
     fig_mucnuoc.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig_mucnuoc.layout.xaxis.fixedrange = True
+    fig_mucnuoc.layout.yaxis.fixedrange = True
     fig_mucnuoc.update_layout(spikedistance=1000, hoverdistance=100)
     # fig_mucnuoc.update_layout(
     # xaxis=dict(tickmode="linear"),
@@ -410,6 +412,8 @@ def graphs_Q(df_Q):
     fig.update_traces(mode="lines")
     fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
     fig.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig.layout.xaxis.fixedrange = True
+    fig.layout.yaxis.fixedrange = True
     fig.update_layout(spikedistance=1000, hoverdistance=100)
     # Cập nhật layout của biểu đồ
     fig.update_layout(
@@ -526,24 +530,27 @@ elif authentication_status == True:
         # load muc nuoc
         # h_songtranh2,qxa_ht,qden_ht = Mucnuoc_songtranh()
         data_mucnuoc = Mucnuoc_songtranh()
-        
+        # print(data_mucnuoc)
         # tinh thong so song tranh
         h_songtranh2 = data_mucnuoc['mucnuoc_st'].iloc[-1]
+        if h_songtranh2 == 'nan':
+            h_songtranh2 = '170.83'
         qxa_ht = data_mucnuoc['qxa_st'].iloc[-1]
         qden_ht = data_mucnuoc['qden_st'].iloc[-1]
-        # print(h_songtranh2,qxa_ht,qden_ht)
+        # print(h_songtranh2)
         data_dubao = dubao_songtranh()
-        array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
-        row_index = np.where(array_data['H']==float(h_songtranh2))
-        dungtich_songtranh2 = str(array_data['W'][row_index])[1:-1]
-        tyle_st = (float(dungtich_songtranh2)/733.4)*100
+        # array_data = np.genfromtxt('TS_ID/H_W.txt', delimiter=",",names=True,encoding=None)
+        # row_index = np.where(array_data['H']==float(h_songtranh2))
+        # dungtich_songtranh2 = str(array_data['W'][row_index])[1:-1]
+        # tyle_st = (float(dungtich_songtranh2)/733.4)*100
         
         #tinh thong so a vuong
+        dungtich_songtranh2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_st'].iloc[-1]),'Z','W')
         dungtich_av = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]),'Z3','W3')
         dungtich_sb2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'Z1','W1')
         dungtich_sb4 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1]),'Z2','W2')
      
-     
+        tyle_st = (float(dungtich_songtranh2)/733.4)*100
         tyle_av = (float(dungtich_av)/343.55)*100
         tyle_sb2 = (float(dungtich_sb2)/94.3)*100
         tyle_sb4 = (float(dungtich_sb4)/510.8)*100
@@ -579,6 +586,23 @@ elif authentication_status == True:
         # # Nhúng mã CSS tùy chỉnh vào ứng dụng
         st.markdown(custom_css, unsafe_allow_html=True)
         ngaybd = bd.date_input("Ngày bắt đầu",value=datetime((datetime.now() - timedelta(days=5)).year,(datetime.now() - timedelta(days=5)).month,(datetime.now() - timedelta(days=5)).day))
+        st.markdown(
+            """
+            <style>
+        div[class="stDateInput"] div[class="st-b8"] input {
+                color: white;
+                }
+            div[role="presentation"] div{
+            color: white;
+            }
+
+            div[class="st-b3 st-d0"] button {
+                color:white
+                };
+                </style>
+        """,
+            unsafe_allow_html=True,
+        )
         gio_batdau = bd_gio.time_input('Giờ bắt đầu',value=datetime.strptime("23:00", "%H:%M"))
         
 
@@ -619,7 +643,8 @@ elif authentication_status == True:
         with total7:
             st.info('Qtbdb 24h',icon="⭐")
             st.metric(label="Qtb dự báo(m3/s)",value=data_dubao['qdb'].loc[0])
-        style_metric_cards(background_color="#FFFFFF",border_left_color="#686664",border_color="#000000",box_shadow="#F71938")
+        # css cho metric
+        style_metric_cards(background_color="#FFFFFF",border_left_color="#333399",border_color="#000000",box_shadow="#F71938",border_radius_px=10)
         
         
         with st.expander("VIEW SỐ LIỆU MỰC NƯỚC - LƯU LƯỢNG"):
@@ -781,7 +806,7 @@ elif authentication_status == True:
                 
             with st.expander ("Bản tin dự báo"):
                 # placeholder = st.text_input("Chọn loại bản tin", "Mời chọn tin", key="placeholder")
-                tin_loai = st.selectbox("Chọn loại bản tin", ["Xin mời chọn.....","Hạn ngắn", "Hạn vừa", "Tin Lũ"])
+                tin_loai = st.selectbox("Chọn loại bản tin", ["Xin mời chọn.....","Hạn ngắn", "Hạn vừa", 'Hạn dài','Tin Lũ'])
                 # tin_loai = custom_selectbox("Chọn loại bản tin", ["Mời chọn tin","Hàng ngày", "10 ngày", "LULU"])
                 if tin_loai == "Hạn ngắn":
                     images =   read_ftp_sever_image('tin_TVHN.png')
@@ -789,8 +814,11 @@ elif authentication_status == True:
                 elif tin_loai == "Hạn vừa":
                     images =   read_ftp_sever_image('tin_TVHV.png')
                     st.image(images,use_column_width=True)
+                elif tin_loai == "Hạn dài":
+                    images =   read_ftp_sever_image('tin_TVHD.png')
+                    st.image(images,use_column_width=True)                
                 elif tin_loai == "Tin Lũ":
-                    images =   read_ftp_sever_image('tin_TVHV.png')
+                    images =   read_ftp_sever_image('tin_LULU.png')
                     st.image(images,use_column_width=True)
                     # pdf_file = tim_file(read_txt('path_tin/LULU.txt'), '.pdf')
                     # images = export_imaepdf(pdf_file)

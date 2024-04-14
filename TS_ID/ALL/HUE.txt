@@ -1,0 +1,143 @@
+Ma tram,ten tram,TAB,Yeu To,tinh
+91498,Bach Ma 1 (Loc Tri),hanquoc_mua,Mua,Thua Thien Hue
+91498,Bach Ma 1 (Loc Tri),hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91499,Huong Nguyen,hanquoc_mua,Mua,Thua Thien Hue
+91499,Huong Nguyen,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91500,Hong Trung,hanquoc_mua,Mua,Thua Thien Hue
+91500,Hong Trung,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91501,Phong My,hanquoc_mua,Mua,Thua Thien Hue
+91501,Phong My,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91502,Duong Hoa,hanquoc_mua,Mua,Thua Thien Hue
+91502,Duong Hoa,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91517,Loc Tien,hanquoc_mua,Mua,Thua Thien Hue
+91517,Loc Tien,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91518,Huong Phu,hanquoc_mua,Mua,Thua Thien Hue
+91518,Huong Phu,hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+91519,Huong Son (Hue),hanquoc_mua,Mua,Thua Thien Hue
+91519,Huong Son (Hue),hanquoc_nguon,Nguon dataloger,Thua Thien Hue
+14696,Ho chua nuoc Khe Ngang,vrain_mua,Mua,Thua Thien Hue
+553800,Kim Long,mua_oday_thuyvan,Mua,Thua Thien Hue
+553800,Kim Long,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+553800,Kim Long,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+553900,Binh Dien,mua_oday_thuyvan,Mua,Thua Thien Hue
+553900,Binh Dien,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+553900,Binh Dien,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+553900,Binh Dien,nguonsieuam_oday,Nguon Sieu Am,Thua Thien Hue
+553900,Binh Dien,nhietdo_sieuam_oday,Nhiet Do,Thua Thien Hue
+554000,Phu Oc,mua_oday_thuyvan,Mua,Thua Thien Hue
+554000,Phu Oc,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554000,Phu Oc,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+554100,Phong Dien,mua_oday_thuyvan,Mua,Thua Thien Hue
+554100,Phong Dien,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554100,Phong Dien,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+554200,Cau Truoi,mua_oday_thuyvan,Mua,Thua Thien Hue
+554200,Cau Truoi,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554200,Cau Truoi,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+554300,Thuong Nhat,mua_oday_thuyvan,Mua,Thua Thien Hue
+554300,Thuong Nhat,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554300,Thuong Nhat,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+554300,Thuong Nhat,nhietdo_sieuam_oday,Nhiet Do,Thua Thien Hue
+554400,Co Bi,mua_oday_thuyvan,Mua,Thua Thien Hue
+554400,Co Bi,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554400,Co Bi,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+557000,Nam Dong,doam_oday,Do Am,Thua Thien Hue
+557000,Nam Dong,huonggioavg10_oday,Huong Gio AVG10,Thua Thien Hue
+557000,Nam Dong,huonggiomax60_oday,Huong Gio Max 60,Thua Thien Hue
+557000,Nam Dong,huonggio_oday,Huong Gio,Thua Thien Hue
+557000,Nam Dong,khiap_oday,Khi Ap,Thua Thien Hue
+557000,Nam Dong,mua_oday_khituong,Mua,Thua Thien Hue
+557000,Nam Dong,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+557000,Nam Dong,nhietdo_oday,Nhiet Do,Thua Thien Hue
+557000,Nam Dong,tocdogio_avg10_oday,Toc Do Gio AVG10,Thua Thien Hue
+557000,Nam Dong,tocdogio_max60_oday,Toc Do Gio max 60,Thua Thien Hue
+557000,Nam Dong,tocdogio_oday,Toc Do Gio,Thua Thien Hue
+557100,A Luoi,doam_oday,Do Am,Thua Thien Hue
+557100,A Luoi,huonggioavg10_oday,Huong Gio AVG10,Thua Thien Hue
+557100,A Luoi,huonggiomax60_oday,Huong Gio Max 60,Thua Thien Hue
+557100,A Luoi,huonggio_oday,Huong Gio,Thua Thien Hue
+557100,A Luoi,khiap_oday,Khi Ap,Thua Thien Hue
+557100,A Luoi,mua_oday_khituong,Mua,Thua Thien Hue
+557100,A Luoi,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+557100,A Luoi,nhietdo_oday,Nhiet Do,Thua Thien Hue
+557100,A Luoi,tocdogio_avg10_oday,Toc Do Gio AVG10,Thua Thien Hue
+557100,A Luoi,tocdogio_max60_oday,Toc Do Gio max 60,Thua Thien Hue
+557100,A Luoi,tocdogio_oday,Toc Do Gio,Thua Thien Hue
+558800,Ta Luong,mua_oday_domua,Mua,Thua Thien Hue
+558800,Ta Luong,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+558900,Bach Ma,mua_oday_domua,Mua,Thua Thien Hue
+558900,Bach Ma,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+561800,Hue,doam_oday,Do Am,Thua Thien Hue
+561800,Hue,huonggioavg10_oday,Huong Gio AVG10,Thua Thien Hue
+561800,Hue,huonggiomax60_oday,Huong Gio Max 60,Thua Thien Hue
+561800,Hue,huonggio_oday,Huong Gio,Thua Thien Hue
+561800,Hue,khiap_oday,Khi Ap,Thua Thien Hue
+561800,Hue,mua_oday_khituong,Mua,Thua Thien Hue
+561800,Hue,nguondataloger_oday,Nguon dataloger,Thua Thien Hue
+561800,Hue,nhietdo_oday,Nhiet Do,Thua Thien Hue
+561800,Hue,tocdogio_avg10_oday,Toc Do Gio AVG10,Thua Thien Hue
+561800,Hue,tocdogio_max60_oday,Toc Do Gio max 60,Thua Thien Hue
+561800,Hue,tocdogio_oday,Toc Do Gio,Thua Thien Hue
+567011,Quan Tuong Dai,vrain_mua,Mua,Thua Thien Hue
+677493,Nam Dong,vrain_mua,Mua,Thua Thien Hue
+677851,Quang Dien,vrain_mua,Mua,Thua Thien Hue
+678628,Ta Luong,vrain_mua,Mua,Thua Thien Hue
+681524,Ho Tho Son,vrain_mua,Mua,Thua Thien Hue
+682816,Ho Hoa My,vrain_mua,Mua,Thua Thien Hue
+750001,TT Phu Da Phu Vang,vrain_mua,Mua,Thua Thien Hue
+750002,Ho My Xuyen,vrain_mua,Mua,Thua Thien Hue
+750003,Thi tran A Luoi,vrain_mua,Mua,Thua Thien Hue
+750005,Hong Van A Luoi,vrain_mua,Mua,Thua Thien Hue
+750006,Huong Nguyen A Luoi,vrain_mua,Mua,Thua Thien Hue
+750007,Nham A Luoi,vrain_mua,Mua,Thua Thien Hue
+750008,A Dot A Luoi,vrain_mua,Mua,Thua Thien Hue
+750009,Loc Tien Phu Loc,vrain_mua,Mua,Thua Thien Hue
+750010,Giang Hai Phu Loc,vrain_mua,Mua,Thua Thien Hue
+750011,Ho A La,vrain_mua,Mua,Thua Thien Hue
+750012,Dap Thuy dien Thuong Nhat,vrain_mua,Mua,Thua Thien Hue
+750013,Luu vuc Thuy dien Thuong Nhat,vrain_mua,Mua,Thua Thien Hue
+750014,Ho chua nuoc Phu Bai,vrain_mua,Mua,Thua Thien Hue
+86852,Hue,young_dd,Huong Gio TB 2 phut,Thua Thien Hue
+86852,Hue,young_dd2m,Huong Gio max 2 phut,Thua Thien Hue
+86852,Hue,young_dd2s,Huong Gio max 2 giay,Thua Thien Hue
+86852,Hue,young_ff,Toc Do Gio TB 2 Phut,Thua Thien Hue
+86852,Hue,young_ff2m,Toc Do Gio max 2 phut,Thua Thien Hue
+86852,Hue,young_ff2s,Toc Do Gio max 2 giay,Thua Thien Hue
+958573,Luu vuc Thuy dien Rao Trang 4,vrain_mua,Mua,Thua Thien Hue
+959428,Dap Thuy dien Rao Trang 4,vrain_mua,Mua,Thua Thien Hue
+ARG0000033,Binh Dien,mua_wb5,Mua,Thua Thien Hue
+ARG0000033,Binh Dien,nguondataloger_wb5,Nguon dataloger,Thua Thien Hue
+AWS0000025,Le Thuy KT,Khiap_11m_wb5,Khi Ap 11m,Thua Thien Hue
+AWS0000025,Le Thuy KT,Khiap_wb5,Khi Ap,Thua Thien Hue
+AWS0000025,Le Thuy KT,nhietdo_11m_wb5,Nhiet Do 11m,Thua Thien Hue
+AWS0000025,Le Thuy KT,thoigiannang_wb5,Thoi Gian Nang,Thua Thien Hue
+AWS0000025,Le Thuy KT,tocdogio_avg10_wb5,Toc Do Gio AVG10,Thua Thien Hue
+AWS0000025,Le Thuy KT,tocdogio_max1phut_wb5,Toc Do Gio max 1 phut,Thua Thien Hue
+AWS0000025,Le Thuy KT,tongxa_wb5,Tong Luong Buc Xa,Thua Thien Hue
+AWS0000026,Thuan An,cuongdobucxa_wb5,Cuong Do Buc Xa,Thua Thien Hue
+AWS0000026,Thuan An,doam_wb5,Do Am,Thua Thien Hue
+AWS0000026,Thuan An,huonggio_avg10_wb5,Huong Gio AVG10,Thua Thien Hue
+AWS0000026,Thuan An,huonggio_max1phut_wb5,Huong Gio max 1 Phut,Thua Thien Hue
+AWS0000026,Thuan An,Khiap_11m_wb5,Khi Ap 11m,Thua Thien Hue
+AWS0000026,Thuan An,Khiap_wb5,Khi Ap,Thua Thien Hue
+AWS0000026,Thuan An,muakhituong_wb5,Mua,Thua Thien Hue
+AWS0000026,Thuan An,nguondataloger_wb5,Nguon dataloger,Thua Thien Hue
+AWS0000026,Thuan An,nhietdo_11m_wb5,Nhiet Do 11m,Thua Thien Hue
+AWS0000026,Thuan An,nhietdo_wb5,Nhiet Do,Thua Thien Hue
+AWS0000026,Thuan An,thoigiannang_wb5,Thoi Gian Nang,Thua Thien Hue
+AWS0000026,Thuan An,tocdogio_avg10_wb5,Toc Do Gio AVG10,Thua Thien Hue
+AWS0000026,Thuan An,tocdogio_max1phut_wb5,Toc Do Gio max 1 phut,Thua Thien Hue
+AWS0000026,Thuan An,tongxa_wb5,Tong Luong Buc Xa,Thua Thien Hue
+AWS0000027,Kham Duc,Khiap_11m_wb5,Khi Ap 11m,Thua Thien Hue
+AWS0000027,Kham Duc,Khiap_wb5,Khi Ap,Thua Thien Hue
+AWS0000027,Kham Duc,nhietdo_11m_wb5,Nhiet Do 11m,Thua Thien Hue
+AWS0000027,Kham Duc,thoigiannang_wb5,Thoi Gian Nang,Thua Thien Hue
+AWS0000027,Kham Duc,tocdogio_avg10_wb5,Toc Do Gio AVG10,Thua Thien Hue
+AWS0000027,Kham Duc,tocdogio_max1phut_wb5,Toc Do Gio max 1 phut,Thua Thien Hue
+AWS0000027,Kham Duc,tongxa_wb5,Tong Luong Buc Xa,Thua Thien Hue
+AWS0000028,Ba Na,Khiap_11m_wb5,Khi Ap 11m,Thua Thien Hue
+AWS0000028,Ba Na,Khiap_wb5,Khi Ap,Thua Thien Hue
+AWS0000028,Ba Na,nhietdo_11m_wb5,Nhiet Do 11m,Thua Thien Hue
+AWS0000028,Ba Na,thoigiannang_wb5,Thoi Gian Nang,Thua Thien Hue
+AWS0000028,Ba Na,tocdogio_avg10_wb5,Toc Do Gio AVG10,Thua Thien Hue
+AWS0000028,Ba Na,tocdogio_max1phut_wb5,Toc Do Gio max 1 phut,Thua Thien Hue
+AWS0000028,Ba Na,tongxa_wb5,Tong Luong Buc Xa,Thua Thien Hue

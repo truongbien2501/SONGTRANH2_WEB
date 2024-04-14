@@ -1,0 +1,126 @@
+Ma tram,ten tram,TAB,Yeu To,tinh
+91456,Ba Long,hanquoc_mua,Mua,Quang Tri
+91456,Ba Long,hanquoc_nguon,Nguon dataloger,Quang Tri
+91457,Ta Rut 1,hanquoc_mua,Mua,Quang Tri
+91457,Ta Rut 1,hanquoc_nguon,Nguon dataloger,Quang Tri
+91458,Vinh O,hanquoc_mua,Mua,Quang Tri
+91458,Vinh O,hanquoc_nguon,Nguon dataloger,Quang Tri
+91459,Huong Son QT,hanquoc_mua,Mua,Quang Tri
+91459,Huong Son QT,hanquoc_nguon,Nguon dataloger,Quang Tri
+91460,Huong Hiep,hanquoc_mua,Mua,Quang Tri
+91460,Huong Hiep,hanquoc_nguon,Nguon dataloger,Quang Tri
+312213,Cua Tung,vrain_mua,Mua,Quang Tri
+317420,Trieu Ai,vrain_mua,Mua,Quang Tri
+319225,Hai An,vrain_mua,Mua,Quang Tri
+341347,Hai Lam,vrain_mua,Mua,Quang Tri
+344845,Linh Thuong,vrain_mua,Mua,Quang Tri
+345334,Huong Loc,vrain_mua,Mua,Quang Tri
+346097,Huong Linh,vrain_mua,Mua,Quang Tri
+352410,Lao Bao,vrain_mua,Mua,Quang Tri
+356218,Thuy dien Dakrong 2,vrain_mua,Mua,Quang Tri
+356642,A Bung,vrain_mua,Mua,Quang Tri
+40664,Ba Nang,vrain_mua,Mua,Quang Tri
+40665,Vinh Tu,vrain_mua,Mua,Quang Tri
+40667,Thanh,vrain_mua,Mua,Quang Tri
+40723,Hai Thai,vrain_mua,Mua,Quang Tri
+40728,Cam Chinh,vrain_mua,Mua,Quang Tri
+40730,A Doi,vrain_mua,Mua,Quang Tri
+40731,Ta Long,vrain_mua,Mua,Quang Tri
+40742,Vinh Khe,vrain_mua,Mua,Quang Tri
+40824,Huong Phung,vrain_mua,Mua,Quang Tri
+41039,Tan Long,vrain_mua,Mua,Quang Tri
+41040,Thuy dien Quang Tri,vrain_mua,Mua,Quang Tri
+554500,Dakrong,mua_oday_thuyvan,Mua,Quang Tri
+554500,Dakrong,mucnuoc_oday,Muc Nuoc,Quang Tri
+554500,Dakrong,nguondataloger_oday,Nguon dataloger,Quang Tri
+554500,Dakrong,nguonsieuam_oday,Nguon Sieu Am,Quang Tri
+554500,Dakrong,nhietdo_sieuam_oday,Nhiet Do,Quang Tri
+554600,Thach Han,mua_oday_thuyvan,Mua,Quang Tri
+554600,Thach Han,mucnuoc_oday,Muc Nuoc,Quang Tri
+554600,Thach Han,nguondataloger_oday,Nguon dataloger,Quang Tri
+554700,Dong Ha idro,mua_oday_thuyvan,Mua,Quang Tri
+554700,Dong Ha idro,mucnuoc_oday,Muc Nuoc,Quang Tri
+554700,Dong Ha idro,nguondataloger_oday,Nguon dataloger,Quang Tri
+554800,Cua Viet,mua_oday_thuyvan,Mua,Quang Tri
+554800,Cua Viet,mucnuoc_oday,Muc Nuoc,Quang Tri
+554800,Cua Viet,nguondataloger_oday,Nguon dataloger,Quang Tri
+554900,Gia Vong,mua_oday_thuyvan,Mua,Quang Tri
+554900,Gia Vong,mucnuoc_oday,Muc Nuoc,Quang Tri
+554900,Gia Vong,nguondataloger_oday,Nguon dataloger,Quang Tri
+555000,Hien Luong,mua_oday_thuyvan,Mua,Quang Tri
+555000,Hien Luong,mucnuoc_oday,Muc Nuoc,Quang Tri
+555000,Hien Luong,nguondataloger_oday,Nguon dataloger,Quang Tri
+555100,My Chanh,mua_oday_thuyvan,Mua,Quang Tri
+555100,My Chanh,mucnuoc_oday,Muc Nuoc,Quang Tri
+555100,My Chanh,nguondataloger_oday,Nguon dataloger,Quang Tri
+555200,Dau Mau,mua_oday_thuyvan,Mua,Quang Tri
+555200,Dau Mau,mucnuoc_oday,Muc Nuoc,Quang Tri
+555200,Dau Mau,nguondataloger_oday,Nguon dataloger,Quang Tri
+557200,Khe Sanh,doam_oday,Do Am,Quang Tri
+557200,Khe Sanh,huonggioavg10_oday,Huong Gio AVG10,Quang Tri
+557200,Khe Sanh,huonggiomax60_oday,Huong Gio Max 60,Quang Tri
+557200,Khe Sanh,huonggio_oday,Huong Gio,Quang Tri
+557200,Khe Sanh,khiap_oday,Khi Ap,Quang Tri
+557200,Khe Sanh,mua_oday_khituong,Mua,Quang Tri
+557200,Khe Sanh,nguondataloger_oday,Nguon dataloger,Quang Tri
+557200,Khe Sanh,nhietdo_oday,Nhiet Do,Quang Tri
+557200,Khe Sanh,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Tri
+557200,Khe Sanh,tocdogio_max60_oday,Toc Do Gio max 60,Quang Tri
+557200,Khe Sanh,tocdogio_oday,Toc Do Gio,Quang Tri
+557300,Dong Ha meteo,doam_oday,Do Am,Quang Tri
+557300,Dong Ha meteo,huonggioavg10_oday,Huong Gio AVG10,Quang Tri
+557300,Dong Ha meteo,huonggiomax60_oday,Huong Gio Max 60,Quang Tri
+557300,Dong Ha meteo,huonggio_oday,Huong Gio,Quang Tri
+557300,Dong Ha meteo,khiap_oday,Khi Ap,Quang Tri
+557300,Dong Ha meteo,mua_oday_khituong,Mua,Quang Tri
+557300,Dong Ha meteo,nguondataloger_oday,Nguon dataloger,Quang Tri
+557300,Dong Ha meteo,nhietdo_oday,Nhiet Do,Quang Tri
+557300,Dong Ha meteo,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Tri
+557300,Dong Ha meteo,tocdogio_max60_oday,Toc Do Gio max 60,Quang Tri
+557300,Dong Ha meteo,tocdogio_oday,Toc Do Gio,Quang Tri
+557400,Con Co,doam_oday,Do Am,Quang Tri
+557400,Con Co,huonggioavg10_oday,Huong Gio AVG10,Quang Tri
+557400,Con Co,huonggiomax60_oday,Huong Gio Max 60,Quang Tri
+557400,Con Co,huonggio_oday,Huong Gio,Quang Tri
+557400,Con Co,khiap_oday,Khi Ap,Quang Tri
+557400,Con Co,mua_oday_khituong,Mua,Quang Tri
+557400,Con Co,nguondataloger_oday,Nguon dataloger,Quang Tri
+557400,Con Co,nhietdo_oday,Nhiet Do,Quang Tri
+557400,Con Co,tocdogio_avg10_oday,Toc Do Gio AVG10,Quang Tri
+557400,Con Co,tocdogio_max60_oday,Toc Do Gio max 60,Quang Tri
+557400,Con Co,tocdogio_oday,Toc Do Gio,Quang Tri
+559000,Ta Rut,mua_oday_domua,Mua,Quang Tri
+559000,Ta Rut,nguondataloger_oday,Nguon dataloger,Quang Tri
+650221,A Vao,vrain_mua,Mua,Quang Tri
+704852,Huong Son,vrain_mua,Mua,Quang Tri
+740001,TT Phong tranh va Giam nhe thien tai,vrain_mua,Mua,Quang Tri
+740002,Nam Thach Han,vrain_mua,Mua,Quang Tri
+740003,Cam Tuyen,vrain_mua,Mua,Quang Tri
+740004,Trung Son,vrain_mua,Mua,Quang Tri
+740005,Huong Lap,vrain_mua,Mua,Quang Tri
+86089,Con Co,young_dd,Huong Gio TB 2 phut,Quang Tri
+86089,Con Co,young_dd2m,Huong Gio max 2 phut,Quang Tri
+86089,Con Co,young_dd2s,Huong Gio max 2 giay,Quang Tri
+86089,Con Co,young_ff,Toc Do Gio TB 2 Phut,Quang Tri
+86089,Con Co,young_ff2m,Toc Do Gio max 2 phut,Quang Tri
+86089,Con Co,young_ff2s,Toc Do Gio max 2 giay,Quang Tri
+86515,Cua Viet,young_dd,Huong Gio TB 2 phut,Quang Tri
+86515,Cua Viet,young_dd2m,Huong Gio max 2 phut,Quang Tri
+86515,Cua Viet,young_dd2s,Huong Gio max 2 giay,Quang Tri
+86515,Cua Viet,young_ff,Toc Do Gio TB 2 Phut,Quang Tri
+86515,Cua Viet,young_ff2m,Toc Do Gio max 2 phut,Quang Tri
+86515,Cua Viet,young_ff2s,Toc Do Gio max 2 giay,Quang Tri
+86849,Dong Ha,young_dd,Huong Gio TB 2 phut,Quang Tri
+86849,Dong Ha,young_dd2m,Huong Gio max 2 phut,Quang Tri
+86849,Dong Ha,young_dd2s,Huong Gio max 2 giay,Quang Tri
+86849,Dong Ha,young_ff,Toc Do Gio TB 2 Phut,Quang Tri
+86849,Dong Ha,young_ff2m,Toc Do Gio max 2 phut,Quang Tri
+86849,Dong Ha,young_ff2s,Toc Do Gio max 2 giay,Quang Tri
+960753,Huong Phung,vrain_mua,Mua,Quang Tri
+ARG0000032,Vinh Kim,mua_wb5,Mua,Quang Tri
+ARG0000032,Vinh Kim,nguondataloger_wb5,Nguon dataloger,Quang Tri
+TDQT_MUA01QT,Huong Linh TD Quang Tri,chuyendung_mua,Mua,Quang Tri
+TDQT_MUA02QT,Huong Son TD Quang Tri,chuyendung_mua,Mua,Quang Tri
+TDQT_MUA03QT,Dap tran TD Quang Tri,chuyendung_mua,Mua,Quang Tri
+TDQT_NUOHLQT,Ha Luu TD Quang Tri,chuyendung_mucnuoc,Muc Nuoc,Quang Tri
+TDQT_NUOTLQT,Thuong Luu TD Quang Tri,chuyendung_mucnuoc,Muc Nuoc,Quang Tri

@@ -1,0 +1,67 @@
+Ma tram,ten tram,TAB,Yeu To,tinh
+91536,Hoa Bac,hanquoc_mua,Mua,Da Nang
+91536,Hoa Bac,hanquoc_nguon,Nguon dataloger,Da Nang
+91537,Hoa Phu,hanquoc_mua,Mua,Da Nang
+91537,Hoa Phu,hanquoc_nguon,Nguon dataloger,Da Nang
+1204,Hoa Bac,vrain_mua,Mua,Da Nang
+1912,Ho Dong Nghe,vrain_mua,Mua,Da Nang
+306474,Hoa Khe,vrain_mua,Mua,Da Nang
+430013,Chi cuc thuy loi,vrain_mua,Mua,Da Nang
+430014,Ho Ho Cau,vrain_mua,Mua,Da Nang
+430015,Ho Hoc Khe,vrain_mua,Mua,Da Nang
+430016,Suoi Luong,vrain_mua,Mua,Da Nang
+430017,Ho Hoa Khe Hoa Son,vrain_mua,Mua,Da Nang
+430018,Ho Thac Gian,vrain_mua,Mua,Da Nang
+430019,Suoi Da,vrain_mua,Mua,Da Nang
+430021,Hoa Phuoc,vrain_mua,Mua,Da Nang
+430022,Hoa Hai,vrain_mua,Mua,Da Nang
+522912,Tram Kiem lam Song Bac,vrain_mua,Mua,Da Nang
+553400,Cam Le,mua_oday_thuyvan,Mua,Da Nang
+553400,Cam Le,mucnuoc_oday,Muc Nuoc,Da Nang
+553400,Cam Le,nguondataloger_oday,Nguon dataloger,Da Nang
+553400,Cam Le,nguonsieuam_oday,Nguon Sieu Am,Da Nang
+553400,Cam Le,nhietdo_sieuam_oday,Nhiet Do,Da Nang
+556600,Da Nang,doam_oday,Do Am,Da Nang
+556600,Da Nang,huonggioavg10_oday,Huong Gio AVG10,Da Nang
+556600,Da Nang,huonggiomax60_oday,Huong Gio Max 60,Da Nang
+556600,Da Nang,huonggio_oday,Huong Gio,Da Nang
+556600,Da Nang,khiap_oday,Khi Ap,Da Nang
+556600,Da Nang,mua_oday_khituong,Mua,Da Nang
+556600,Da Nang,nguondataloger_oday,Nguon dataloger,Da Nang
+556600,Da Nang,nhietdo_oday,Nhiet Do,Da Nang
+556600,Da Nang,tocdogio_avg10_oday,Toc Do Gio AVG10,Da Nang
+556600,Da Nang,tocdogio_max60_oday,Toc Do Gio max 60,Da Nang
+556600,Da Nang,tocdogio_oday,Toc Do Gio,Da Nang
+558200,Hoa Phu,mua_oday_domua,Mua,Da Nang
+558200,Hoa Phu,nguondataloger_oday,Nguon dataloger,Da Nang
+558700,Hoa Bac,mua_oday_domua,Mua,Da Nang
+558700,Hoa Bac,nguondataloger_oday,Nguon dataloger,Da Nang
+74775,Tram bom An Trach,vrain_mua,Mua,Da Nang
+74776,Tram bom Tuy Loan,vrain_mua,Mua,Da Nang
+74778,Hoa Phu Thanh,vrain_mua,Mua,Da Nang
+74780,Ho Hoa Trung,vrain_mua,Mua,Da Nang
+74782,Trung tam GD DN 05 06,vrain_mua,Mua,Da Nang
+86521,Cam Le,young_dd,Huong Gio TB 2 phut,Da Nang
+86521,Cam Le,young_dd2m,Huong Gio max 2 phut,Da Nang
+86521,Cam Le,young_dd2s,Huong Gio max 2 giay,Da Nang
+86521,Cam Le,young_ff,Toc Do Gio TB 2 Phut,Da Nang
+86521,Cam Le,young_ff2m,Toc Do Gio max 2 phut,Da Nang
+86521,Cam Le,young_ff2s,Toc Do Gio max 2 giay,Da Nang
+86855,Da Nang,young_dd,Huong Gio TB 2 phut,Da Nang
+86855,Da Nang,young_dd2m,Huong Gio max 2 phut,Da Nang
+86855,Da Nang,young_dd2s,Huong Gio max 2 giay,Da Nang
+86855,Da Nang,young_ff,Toc Do Gio TB 2 Phut,Da Nang
+86855,Da Nang,young_ff2m,Toc Do Gio max 2 phut,Da Nang
+86855,Da Nang,young_ff2s,Toc Do Gio max 2 giay,Da Nang
+9064,Ba Na,vrain_mua,Mua,Da Nang
+9067,Hoa Phu,vrain_mua,Mua,Da Nang
+95184,Ho Truoc Dong,vrain_mua,Mua,Da Nang
+ARG0000034,Son Tra,mua_wb5,Mua,Da Nang
+ARG0000034,Son Tra,nguondataloger_wb5,Nguon dataloger,Da Nang
+AWS0000028,Ba Na,cuongdobucxa_wb5,Cuong Do Buc Xa,Da Nang
+AWS0000028,Ba Na,doam_wb5,Do Am,Da Nang
+AWS0000028,Ba Na,huonggio_avg10_wb5,Huong Gio AVG10,Da Nang
+AWS0000028,Ba Na,huonggio_max1phut_wb5,Huong Gio max 1 Phut,Da Nang
+AWS0000028,Ba Na,muakhituong_wb5,Mua,Da Nang
+AWS0000028,Ba Na,nguondataloger_wb5,Nguon dataloger,Da Nang
+AWS0000028,Ba Na,nhietdo_wb5,Nhiet Do,Da Nang
