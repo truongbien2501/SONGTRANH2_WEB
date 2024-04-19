@@ -110,7 +110,7 @@ def read_ecmwf_st(ngay,tram,tg_db):
 # print(read_ecmwf(datetime(2023,8,8,7),'BaDon.txt',48))
 
 # print(read_raii(datetime(2023,8,8,7),48))
-def read_muadb_sever_sontranh(tg_db):
+def read_muadb_sever_sontranh(tg_db,tenho):
     hostname = '203.209.181.171'
     port = 22
     username = 'mpi'
@@ -148,9 +148,20 @@ def read_muadb_sever_sontranh(tg_db):
     df = df.T
     df.columns = df.iloc[0]
     df = df[1:]
-    df =df[['TraBui(ST2)','TraCang(ST2)','TraDon(ST2)','TraGiac(ST2)','TraLeng(ST2)','TraLinh(ST2)','TraMai(ST2)','UBNDNTM(ST2)','Dap(ST2)','TraNam2(ST2)','TraVan(ST2)']]
-    df.columns = ['Trà Bui','Trà Cang','Trà Dơn','Trà Giác','Trà Leng','Trà Linh','Trà Mai','UBNDNTM','Đập chính','Trà Nam','Trà Vân']
-
+    if tenho =='SÔNG TRANH 2':
+        df =df[['TraBui(ST2)','TraCang(ST2)','TraDon(ST2)','TraGiac(ST2)','TraLeng(ST2)','TraLinh(ST2)','TraMai(ST2)','UBNDNTM(ST2)','Dap(ST2)','TraNam2(ST2)','TraVan(ST2)']]
+        df.columns = ['Trà Bui','Trà Cang','Trà Dơn','Trà Giác','Trà Leng','Trà Linh','Trà Mai','UBNDNTM','Đập chính','Trà Nam','Trà Vân']
+    elif tenho =='A VƯƠNG':
+        df =df[['TraBui(ST2)','TraCang(ST2)','TraDon(ST2)','TraGiac(ST2)','TraLeng(ST2)','TraLinh(ST2)','TraMai(ST2)','UBNDNTM(ST2)','Dap(ST2)','TraNam2(ST2)','TraVan(ST2)']]
+        # name_viet = ['Đập tràn A Vương','UBND Ab Vương','Đồn biên phòng A Nông','UBND Huyện Tây Giang','UBND Xã Dang','Trạm Xã A Tep','Trạm Xã A Rooi','Trạm UBND Xã Blahee']
+        # df.columns = name_viet
+    elif tenho =='SÔNG BUNG 2':
+        df =df[['DapSBung2','TrHySBung2','NMSongBung2','GaRiSBung2']]
+        df.columns = ['Đập SB2','TrHy','Chơm','A Xan']
+    elif tenho =='SÔNG BUNG 4':
+        df =df[['DonBQNGiang','ChaVaNMDHSB4','DapSBung4','ZuoihSBung4','TrHySBung2','LaDeeSBung4','CuakhauNG']]
+        df.columns = ['ĐăkPring','Chalval','Đầu mối','Zuôi','TrHy','LaDee','Đak Ốc']
+        
     df.dropna(inplace=True)
     df = df.reset_index(drop=True)
     
@@ -159,7 +170,7 @@ def read_muadb_sever_sontranh(tg_db):
     ngaythangnam = pp[-1].replace('\n','')
     gio = pp[-3].replace('h','')
     tgbd  = datetime.strptime(ngaythangnam + " " + gio, "%d-%m-%Y %H") + timedelta(hours=3)
-    df.insert(0,'time',pd.date_range(tgbd,periods=(len(df['Trà Bui'])),freq='3h'))
+    df.insert(0,'time',pd.date_range(tgbd,periods=(df.shape[0]),freq='3h'))
     df = df[(df['time']>= datetime.now()) & (df['time']<= datetime.now() + timedelta(hours=tg_db))]
     # print(df)
     df.iloc[:,1:] = df.iloc[:,1:].astype(float)

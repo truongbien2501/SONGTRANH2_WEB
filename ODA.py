@@ -207,8 +207,14 @@ def solieu_kttv():
             st.plotly_chart(graphs_mua(solieugoc[['time']+  selected_rows['Tram'].to_list()]))
         elif 'Mucnuoc'in selected_yeuto:
             st.plotly_chart(graphs_h(solieugoc[['time']+  selected_rows['Tram'].to_list()]))
+
+    # rada,bando1 = st.columns(2)
+    # with rada:
+    #     # Địa chỉ web bạn muốn nhúng
+    #     website_url = "http://hymetnet.gov.vn/radar/TKY"
+    #     # Sử dụng thành phần HTML để nhúng trang web
+    #     # "<iframe src="{}" style='border:0; width:100%; height:400px;'></iframe>"
         
-        
-        
+    # st.components.v1.html(f'<iframe src="http://hymetnet.gov.vn/radar/TKY" width:100%; height:100%></iframe>', scrolling=True)        
 
 solieu_kttv()

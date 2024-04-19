@@ -1,0 +1,13 @@
+Matram,tentram,TAB
+5SB4,mucnuoc,ho_dakdrinh_mucnuoc
+5SB4,qxa,ho_dakdrinh_qdieutiet
+5SB4,qden,ho_dakdrinh_qve
+553100,Hoi Khach,mucnuoc_oday
+553300,Ai Nghia,mucnuoc_oday
+SB4DK,SB4DK,mua_av_sb
+SB4CV,SB4CV,mua_av_sb
+SB4DM,SB4DM,mua_av_sb
+SB4ZU,SB4ZU,mua_av_sb
+SB4TR,SB4TR,mua_av_sb
+SB4LE,SB4LE,mua_av_sb
+SB4DO,SB4DO,mua_av_sb

@@ -1,12 +1,12 @@
-﻿Thông số,A Vương,Sông Tranh 2,Sông Bung,Đơn vị
-Mực nước,,,,m
-Q đến,,,,m3/s
-Q điều tiết,,,,m3/s
-Tỷ lệ hữu ích,,,,%
-Q dự báo 24h,,,,m3/s
-Diện tích lưu vực,682,1100,334,km2
-MNDBT,380,175,605,m
-MNC,340,140,565,m
-Dung tích,343.55,729.2,94.3,106m3
-Số tổ máy,2,2,2,tổ
-Công suất lắp máy,210,190,100,MW
+﻿Thông số,A Vương,Sông Tranh 2,Sông Bung 2,Sông Bung 4,Đơn vị
+Mực nước,,,,,m
+Q đến,,,,,m3/s
+Q điều tiết,,,,,m3/s
+Tỷ lệ hữu ích,,,,,%
+Q dự báo 24h,,,,,m3/s
+Diện tích lưu vực,682,1100,334,1448,km2
+MNDBT,380,175,605,222.5,m
+MNC,340,140,565,205,m
+Dung tích,343.55,729.2,94.3,510.8,106m3
+Số tổ máy,2,2,2,2,tổ
+Công suất lắp máy,210,190,100,156,MW
