@@ -141,26 +141,10 @@ def chaymua(name_tinh):
     # st.write(selection)
 
 def solieu_kttv():
-    st.set_page_config(layout="wide")
+    # st.set_page_config(layout="wide")
     st.markdown('<h1 style="font-size:25px;color:Blue;font-family: Times New Roman;text-align: center;">VIEW SỐ LIỆU ODA</h1>', unsafe_allow_html=True)# tạo header màu xanh màu xanh time new roman
-    now = datetime.now()
+    # now = datetime.now()
     with st.sidebar:
-        st.markdown(
-            """
-            <style>
-                [data-testid=stSidebar] [data-testid=stImage]{
-                    text-align: center;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 100%;
-                }
-            </style>
-            """, unsafe_allow_html=True
-        )
-
-
-        st.image("image/logo_ttb.png",width=150)
         tinh,yeutos = st.columns(2)
         # Tạo một danh sách các tùy chọn cho combobox
         provin = ["QNGA", "QBIN", "QTRI", "THUE", "DNAN", "QNAM"]
@@ -184,7 +168,6 @@ def solieu_kttv():
     tk,solieugoc = chaymua(selected_tinh)
     tichluy,bando = st.columns(2)
     with tichluy:
-        
         df_with_selections = tk.copy()
         df_with_selections.insert(0, "Chọn", False)
         # Get dataframe row-selections from user with st.data_editor
@@ -208,13 +191,3 @@ def solieu_kttv():
         elif 'Mucnuoc'in selected_yeuto:
             st.plotly_chart(graphs_h(solieugoc[['time']+  selected_rows['Tram'].to_list()]))
 
-    # rada,bando1 = st.columns(2)
-    # with rada:
-    #     # Địa chỉ web bạn muốn nhúng
-    #     website_url = "http://hymetnet.gov.vn/radar/TKY"
-    #     # Sử dụng thành phần HTML để nhúng trang web
-    #     # "<iframe src="{}" style='border:0; width:100%; height:400px;'></iframe>"
-        
-    # st.components.v1.html(f'<iframe src="http://hymetnet.gov.vn/radar/TKY" width:100%; height:100%></iframe>', scrolling=True)        
-
-solieu_kttv()

@@ -20,8 +20,45 @@ import json
 from PIL import ImageFile
 from streamlit_option_menu import option_menu
 import base64
+from ODA import solieu_kttv
 from scipy import interpolate
 st.set_option('deprecation.showPyplotGlobalUse', False)
+def read_ftp_sever_rada_image():
+    # Your SSH details
+    host = '113.161.6.128'
+    port = 2233
+    username = 'radarop'
+    password = 'xxxxxx'
+    remote_directory = '/usr/iris_data/jpg'
+
+    # Create SSH connection
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=username, password=password)
+
+    # Create SFTP connection
+    sftp = client.open_sftp()
+    filenames = sftp.listdir(remote_directory)
+    # print(filenames)
+        # Get the latest filename
+    latest_filename = sorted(filenames)[-2]
+    # print(latest_filename)
+    # Open the image file directly from SFTP
+    remote_filepath = f'{remote_directory}/{latest_filename}'
+    image_file = sftp.open(remote_filepath, 'r')
+
+    # Ensure Pillow can handle incomplete images
+    ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+    # Open the image using Pillow
+    image = PIL.Image.open(image_file)
+
+    # Close connections
+    # image_file.close()
+    # sftp.close()
+    # client.close()
+
+    return image
 # noi suy w
 def noisuy_hw(mucnuoc,cotH,cotw):
     df = pd.read_excel('data/Thongso.xlsx',sheet_name='QH')
@@ -112,6 +149,27 @@ def read_ftp_sever_image(tram):
         image_data.seek(0)
         anh = PIL.Image.open(image_data)
         return anh
+
+def dubao_songtranh():
+    kt = datetime(2024,1,25)
+    bd = datetime(2024,1,25)
+    data = pd.DataFrame()
+    data['time'] = pd.date_range(bd,kt,freq='h')
+    tram = pd.read_csv('TS_ID/TTB/dubao.txt')
+    # tram = pd.read_csv(r'D:\PM_PYTHON\SONGTRANH_WEB\TS_ID\TTB\songtranh2.txt')
+    for item in zip(tram.Matram,tram.tentram,tram.TAB):
+    # print(item[0],item[2],item[1])
+        pth = 'http://113.160.225.84:2018/API_TTB/XEM/solieu.php?matram={}&ten_table={}&sophut=60&tinhtong=0&thoigianbd=%27{}%2000:00:00%27&thoigiankt=%27{}%2023:59:00%27'
+        pth = pth.format(item[0],item[2],bd.strftime('%Y-%m-%d'),kt.strftime('%Y-%m-%d'))
+        df = pd.read_html(pth)
+        df[0].rename(columns={"thoi gian":'time','so lieu':item[1]},inplace=True)
+        df = df[0].drop('Ma tram',axis=1)
+        df['time'] = pd.to_datetime(df['time'])
+        data = data.merge(df,how='left',on='time')
+    data.set_index('time',inplace=True)
+    data = data[data.index.minute == 0]
+    data.reset_index(drop=False,inplace=True)  
+    return data 
     
 @st.cache_data
 def xulysolieu_mua(df):
@@ -279,27 +337,6 @@ def Mucnuoc_songtranh():
     data.reset_index(drop=False,inplace=True)  
     # data = data.dropna()
     return data
-@st.cache_data
-def dubao_songtranh():
-    kt = datetime(2024,1,25)
-    bd = datetime(2024,1,25)
-    data = pd.DataFrame()
-    data['time'] = pd.date_range(bd,kt,freq='h')
-    tram = pd.read_csv('TS_ID/TTB/dubao.txt')
-    # tram = pd.read_csv(r'D:\PM_PYTHON\SONGTRANH_WEB\TS_ID\TTB\songtranh2.txt')
-    for item in zip(tram.Matram,tram.tentram,tram.TAB):
-    # print(item[0],item[2],item[1])
-        pth = 'http://113.160.225.84:2018/API_TTB/XEM/solieu.php?matram={}&ten_table={}&sophut=60&tinhtong=0&thoigianbd=%27{}%2000:00:00%27&thoigiankt=%27{}%2023:59:00%27'
-        pth = pth.format(item[0],item[2],bd.strftime('%Y-%m-%d'),kt.strftime('%Y-%m-%d'))
-        df = pd.read_html(pth)
-        df[0].rename(columns={"thoi gian":'time','so lieu':item[1]},inplace=True)
-        df = df[0].drop('Ma tram',axis=1)
-        df['time'] = pd.to_datetime(df['time'])
-        data = data.merge(df,how='left',on='time')
-    data.set_index('time',inplace=True)
-    data = data[data.index.minute == 0]
-    data.reset_index(drop=False,inplace=True)  
-    return data    
 
 # @st.cache_data
 # def vebieudomua(df_mua):
@@ -470,43 +507,6 @@ def html_mucnuoc(df,tentram,tram_anh):
     <body>
     """
     return html
-@st.cache_resource
-def read_ftp_sever_rada_image():
-    # Your SSH details
-    host = '113.161.6.128'
-    port = 2233
-    username = 'radarop'
-    password = 'xxxxxx'
-    remote_directory = '/usr/iris_data/jpg'
-
-    # Create SSH connection
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname=host, port=port, username=username, password=password)
-
-    # Create SFTP connection
-    sftp = client.open_sftp()
-    filenames = sftp.listdir(remote_directory)
-    # print(filenames)
-        # Get the latest filename
-    latest_filename = sorted(filenames)[-1]
-
-    # Open the image file directly from SFTP
-    remote_filepath = f'{remote_directory}/{latest_filename}'
-    image_file = sftp.open(remote_filepath, 'r')
-
-    # Ensure Pillow can handle incomplete images
-    ImageFile.LOAD_TRUNCATED_IMAGES = True
-
-    # Open the image using Pillow
-    image = PIL.Image.open(image_file)
-
-    # Close connections
-    # image_file.close()
-    # sftp.close()
-    # client.close()
-
-    return image
 # Thiết lập kích thước và chế độ hiển thị trang ứng dụng
 # st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_title="KTTV TTB", page_icon="	:sun_behind_rain_cloud:")
 st.set_page_config(layout="wide", initial_sidebar_state="auto", page_title="Hồ chứa KTTV TTB", page_icon="	:sun_behind_rain_cloud:")
@@ -708,9 +708,11 @@ elif authentication_status == True:
         # print(tramve)
         # images,ax =  vebieudomua(tramve)    
         vemua.plotly_chart(graphs_mua(tramve),use_container_width=True)
-        muadubao= read_muadb_sever_sontranh(24,tenho)
-        muadb.plotly_chart(graphs_mua_db(muadubao),use_container_width=True)
-        
+        try:
+            muadubao= read_muadb_sever_sontranh(24,tenho)
+            muadb.plotly_chart(graphs_mua_db(muadubao),use_container_width=True)
+        except:
+            muadb.write('Chưa có dữ liệu phiên dự báo')
         try:
             image_gio,image_nhiet,image_amap,image_may = anh_mo_hinh_WRF()
             gio,nhiet = st.columns(2)
@@ -923,26 +925,38 @@ elif authentication_status == True:
                 folium_static(m,width=550)
                 
             with st.expander ("Bản tin dự báo"):
+                
                 # placeholder = st.text_input("Chọn loại bản tin", "Mời chọn tin", key="placeholder")
                 tin_loai = st.selectbox("Chọn loại bản tin", ["Xin mời chọn.....","Hạn ngắn", "Hạn vừa", 'Hạn dài','Tin Lũ'])
                 # tin_loai = custom_selectbox("Chọn loại bản tin", ["Mời chọn tin","Hàng ngày", "10 ngày", "LULU"])
-                if tin_loai == "Hạn ngắn":
-                    images =   read_ftp_sever_image('tin_TVHN.png')
-                    st.image(images,use_column_width=True)
-                elif tin_loai == "Hạn vừa":
-                    images =   read_ftp_sever_image('tin_TVHV.png')
-                    st.image(images,use_column_width=True)
-                elif tin_loai == "Hạn dài":
-                    images =   read_ftp_sever_image('tin_TVHD.png')
-                    st.image(images,use_column_width=True)                
-                elif tin_loai == "Tin Lũ":
-                    images =   read_ftp_sever_image('tin_LULU.png')
-                    st.image(images,use_column_width=True)
-                    # pdf_file = tim_file(read_txt('path_tin/LULU.txt'), '.pdf')
-                    # images = export_imaepdf(pdf_file)
-                    # for img in images:
-                    #     st.image(img)
                 
+                imgae_new = ['','_av','_sb4','_sb2']
+                                  
+                if tin_loai == "Hạn ngắn":
+                    try:
+                        images =   read_ftp_sever_image('tin_TVHN{}.png'.format(imgae_new[pth_shps_na.index(tenho)]))
+                        st.image(images,use_column_width=True)
+                    except:
+                        st.write('Chưa có bản tin')
+                elif tin_loai == "Hạn vừa":
+                    try:
+                        images =   read_ftp_sever_image('tin_TVHV{}.png'.format(imgae_new[pth_shps_na.index(tenho)]))
+                        st.image(images,use_column_width=True)
+                    except:
+                        st.write('Chưa có bản tin')
+                elif tin_loai == "Hạn dài":
+                    try:
+                        images =   read_ftp_sever_image('tin_TVHD{}.png'.format(imgae_new[pth_shps_na.index(tenho)]))
+                        st.image(images,use_column_width=True)
+                    except:
+                        st.write('Chưa có bản tin')                
+                elif tin_loai == "Tin Lũ":
+                    try:
+                        images =   read_ftp_sever_image('tin_LULU{}.png'.format(imgae_new[pth_shps_na.index(tenho)]))
+                        st.image(images,use_column_width=True)
+                    except:
+                        st.write('Chưa có bản tin')
+              
         with col2:
             with st.expander ("RADA TAM KỲ"):
                 # ip = '203.209.181.171'
@@ -951,11 +965,14 @@ elif authentication_status == True:
                 # ssh_directory  = '/home/disk2/KQ_WRF72h/{}/Hinh_00z_36h/Luoi2/MuaL2_11.png'.format(datetime.now().strftime('%d%m%Y'))  # Thay đổi đường dẫn tới tệp ảnh trên máy chủ
                 # # image =   read_ftp_sever_image('tin_TVHN.png')
                 # image = get_image_from_ssh(ip, username, password, ssh_directory)
-                try:
-                    image = read_ftp_sever_rada_image()
-                    st.image(image, caption='Ảnh RaĐa Tam Kỳ hiện tại', use_column_width=True)
-                except:
-                    st.error("Không thể lấy ảnh từ máy chủ. Vui lòng kiểm tra lại thông tin.")
+                
+                image = read_ftp_sever_rada_image()
+                st.image(image, caption='Ảnh RaĐa Tam Kỳ hiện tại', use_column_width=True)
+                # try:
+                #     image = read_ftp_sever_rada_image()
+                #     st.image(image, caption='Ảnh RaĐa Tam Kỳ hiện tại', use_column_width=True)
+                # except:
+                #     st.error("Không thể lấy ảnh từ máy chủ. Vui lòng kiểm tra lại thông tin.")
 
             map_windy = st.expander("Windy")
             map_windy._iframe(src='https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=15.356&lon=108.158&detailLat=15.333856148597976&detailLon=108.18099975585939',height=500)
@@ -969,15 +986,7 @@ elif authentication_status == True:
         </style>
         """
 
-    #all graphs we use custom css not streamlit 
     theme_plotly = None 
-    # load Style css
-    # with open('style.css')as f:
-    #     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
-    # logo_image = 'image/logo_ttb.png'
-    # authenticator.logout("Logout", "sidebar")
-    # st.header("ĐÀI KHÍ TƯỢNG THUỶ VĂN KHU VỰC TRUNG TRUNG BỘ")    
-    # tao thanh slidebar va du lieu trong slidebar
     st.markdown(
         """
         <style>
@@ -1002,14 +1011,15 @@ elif authentication_status == True:
         with st.sidebar:
             selected=option_menu(
                 menu_title="Danh Sách",
-                options=["SÔNG TRANH 2","A VƯƠNG",'SÔNG BUNG 4','SÔNG BUNG 2'],
-                icons=["house","eye",'eye','eye'],
+                options=["SÔNG TRANH 2","A VƯƠNG",'SÔNG BUNG 4','SÔNG BUNG 2','ODA'],
+                icons=["house","eye",'eye','eye','eye'],
                 menu_icon="cast",
                 default_index=0
             )
         if selected=="SÔNG TRANH 2" or selected=="A VƯƠNG" or  selected=="SÔNG BUNG 4" or  selected=="SÔNG BUNG 2":
             HOCHUA_vgtb(selected)
-        elif selected=="KTTV":
+        elif selected=="ODA":
+            # solieu_kttv()
             st.warning("Chưa cấp quyền truy cập")
 
     sideBar()

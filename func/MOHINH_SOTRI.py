@@ -3,7 +3,6 @@ from datetime import datetime,timedelta
 import pandas as pd
 import numpy as np
 import paramiko
-import pyautogui as pa
 import pandas as pd
 from ftplib import FTP
 from PIL import Image
