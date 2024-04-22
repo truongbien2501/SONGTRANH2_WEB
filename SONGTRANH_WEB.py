@@ -76,7 +76,7 @@ def noisuy_hw(mucnuoc,cotH,cotw):
 
     # In ra kết quả
     result_df = pd.DataFrame({'Z': new_Z, 'W': new_W})
-    result_df = result_df.map("{0:.2f}".format)
+    result_df = result_df.applymap("{0:.2f}".format)
     # result_df.to_csv('songtranh222.csv')
     # print(result_df[result_df['Z']==mucnuoc]['W'])
     return result_df[result_df['Z']==str(mucnuoc)]['W'].values[0]
@@ -277,7 +277,7 @@ def Bieudo_Q_H(bd,kt,tenho):
     elif tenho =='A VƯƠNG':
         df_mua = data.drop(['mucnuoc','qden','qxa','Ai Nghia','Hoi Khach'],axis=1)
         # print(df_mua)
-        name_viet = ['time','Đập tràn A Vương','UBND Xã A Vương','Đồn biên phòng A Nông','UBND Huyện Tây Giang','UBND Xã Dang','Trạm Xã A Tep','Trạm Xã A Rooi','Trạm UBND Xã Blahee']
+        name_viet = ['time','Đập tràn A Vương','UBND Xã A Vương','Đồn biên phòng A Nông','UBND Huyện Tây Giang','UBND Xã Dang','Trạm Xã A Tep','Trạm Xã A Rooi','Trạm UBND Xã Blahee','HIEN']
         df_mua.columns =name_viet
         df_mua.replace('-',np.nan)
         
@@ -410,6 +410,8 @@ def graphs_mua(df):
      paper_bgcolor='rgba(0, 0, 0, 0)',  # Set paper background color to transparent
      xaxis=dict(showgrid=True, gridcolor='#cecdcd'),  # Show x-axis grid and set its color
      )
+    fig_mua.layout.xaxis.fixedrange = True
+    fig_mua.layout.yaxis.fixedrange = True
     return fig_mua
 @st.cache_data
 def graphs_mua_db(df):
@@ -436,6 +438,8 @@ def graphs_mua_db(df):
      paper_bgcolor='rgba(0, 0, 0, 0)',  # Set paper background color to transparent
      xaxis=dict(showgrid=True, gridcolor='#cecdcd'),  # Show x-axis grid and set its color
      )
+    fig_mua_db.layout.xaxis.fixedrange = True
+    fig_mua_db.layout.yaxis.fixedrange = True
     return fig_mua_db
 @st.cache_data
 def graphs_h(df_h):
@@ -708,6 +712,9 @@ elif authentication_status == True:
         # print(tramve)
         # images,ax =  vebieudomua(tramve)    
         vemua.plotly_chart(graphs_mua(tramve),use_container_width=True)
+        # muadubao= read_muadb_sever_sontranh(24,tenho)
+        # muadb.plotly_chart(graphs_mua_db(muadubao),use_container_width=True)
+        
         try:
             muadubao= read_muadb_sever_sontranh(24,tenho)
             muadb.plotly_chart(graphs_mua_db(muadubao),use_container_width=True)
