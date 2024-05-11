@@ -1,0 +1,8 @@
+Matram,tentram,TAB,YeuTo,tinh
+553800,Kim Long,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+553900,Binh Dien,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554000,Phu Oc,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554100,Phong Dien,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554200,Cau Truoi,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554300,Thuong Nhat,mucnuoc_oday,Muc Nuoc,Thua Thien Hue
+554400,Co Bi,mucnuoc_oday,Muc Nuoc,Thua Thien Hue

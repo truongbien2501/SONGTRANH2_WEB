@@ -1,0 +1,12 @@
+Matram,tentram,TAB,YeuTo,tinh
+552600,Hiep Duc,mucnuoc_oday,Muc Nuoc,Quang Nam
+552700,Cau Lau,mucnuoc_oday,Muc Nuoc,Quang Nam
+552800,Hien Vuong,mucnuoc_oday,Muc Nuoc,Quang Nam
+553000,Thanh My,mucnuoc_oday,Muc Nuoc,Quang Nam
+553100,Hoi Khach,mucnuoc_oday,Muc Nuoc,Quang Nam
+553200,Giao Thuy,mucnuoc_oday,Muc Nuoc,Quang Nam
+553300,Ai Nghia,mucnuoc_oday,Muc Nuoc,Quang Nam
+553500,Ky Phu,mucnuoc_oday,Muc Nuoc,Quang Nam
+553600,Nong Son,mucnuoc_oday,Muc Nuoc,Quang Nam
+553700,Hoi An,mucnuoc_oday,Muc Nuoc,Quang Nam
+553400,Cam Le,mucnuoc_oday,Muc Nuoc,Da Nang

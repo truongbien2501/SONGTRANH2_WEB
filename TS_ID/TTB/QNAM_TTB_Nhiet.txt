@@ -1,0 +1,7 @@
+Matram,tentram,TAB
+552600,Hiep Duc,nhietdo_sieuam_oday
+553000,Thanh My,nhietdo_sieuam_oday
+556700,Tra My,nhietdo_oday
+556800,Tam Ky,nhietdo_oday
+556900,Cu Lao Cham,nhietdo_oday
+AWS0000027,Kham Duc,nhietdo_wb5

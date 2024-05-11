@@ -1,0 +1,44 @@
+Matram,tentram,TAB
+556200,Dung Quat Meteo,huonggioavg10_oday
+556200,Dung Quat Meteo,huonggiomax60_oday
+556200,Dung Quat Meteo,huonggio_oday
+556200,Dung Quat Meteo,tocdogio_avg10_oday
+556200,Dung Quat Meteo,tocdogio_max60_oday
+556200,Dung Quat Meteo,tocdogio_oday
+556300,Ba To,huonggioavg10_oday
+556300,Ba To,huonggiomax60_oday
+556300,Ba To,huonggio_oday
+556300,Ba To,tocdogio_avg10_oday
+556300,Ba To,tocdogio_max60_oday
+556300,Ba To,tocdogio_oday
+556400,Quang Ngai,huonggioavg10_oday
+556400,Quang Ngai,huonggiomax60_oday
+556400,Quang Ngai,huonggio_oday
+556400,Quang Ngai,tocdogio_avg10_oday
+556400,Quang Ngai,tocdogio_max60_oday
+556400,Quang Ngai,tocdogio_oday
+556500,Ly Son,huonggioavg10_oday
+556500,Ly Son,huonggiomax60_oday
+556500,Ly Son,huonggio_oday
+556500,Ly Son,tocdogio_avg10_oday
+556500,Ly Son,tocdogio_max60_oday
+556500,Ly Son,tocdogio_oday
+86012,Hoi An,young_ff2s
+86085,Ly Son,young_dd
+86085,Ly Son,young_dd2m
+86085,Ly Son,young_dd2s
+86085,Ly Son,young_ff
+86085,Ly Son,young_ff2m
+86085,Ly Son,young_ff2s
+86540,Tra Cau,young_dd
+86540,Tra Cau,young_dd2m
+86540,Tra Cau,young_dd2s
+86540,Tra Cau,young_ff
+86540,Tra Cau,young_ff2m
+86540,Tra Cau,young_ff2s
+86863,Quang Ngai,young_dd
+86863,Quang Ngai,young_dd2m
+86863,Quang Ngai,young_dd2s
+86863,Quang Ngai,young_ff
+86863,Quang Ngai,young_ff2m
+86863,Quang Ngai,young_ff2s

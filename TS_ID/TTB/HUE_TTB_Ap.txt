@@ -1,0 +1,12 @@
+Matram,tentram,TAB
+557000,Nam Dong,khiap_oday
+557100,A Luoi,khiap_oday
+561800,Hue,khiap_oday
+AWS0000025,Le Thuy KT,Khiap_11m_wb5
+AWS0000025,Le Thuy KT,Khiap_wb5
+AWS0000026,Thuan An,Khiap_11m_wb5
+AWS0000026,Thuan An,Khiap_wb5
+AWS0000027,Kham Duc,Khiap_11m_wb5
+AWS0000027,Kham Duc,Khiap_wb5
+AWS0000028,Ba Na,Khiap_11m_wb5
+AWS0000028,Ba Na,Khiap_wb5

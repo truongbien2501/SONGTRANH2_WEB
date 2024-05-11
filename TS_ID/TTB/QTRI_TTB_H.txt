@@ -1,0 +1,9 @@
+Matram,tentram,TAB,YeuTo,tinh
+554500,Dakrong,mucnuoc_oday,Muc Nuoc,Quang Tri
+554600,Thach Han,mucnuoc_oday,Muc Nuoc,Quang Tri
+554700,Dong Ha idro,mucnuoc_oday,Muc Nuoc,Quang Tri
+554800,Cua Viet,mucnuoc_oday,Muc Nuoc,Quang Tri
+554900,Gia Vong,mucnuoc_oday,Muc Nuoc,Quang Tri
+555000,Hien Luong,mucnuoc_oday,Muc Nuoc,Quang Tri
+555100,My Chanh,mucnuoc_oday,Muc Nuoc,Quang Tri
+555200,Dau Mau,mucnuoc_oday,Muc Nuoc,Quang Tri

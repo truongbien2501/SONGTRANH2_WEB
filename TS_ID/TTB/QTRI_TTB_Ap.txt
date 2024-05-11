@@ -1,0 +1,4 @@
+Matram,tentram,TAB
+557200,Khe Sanh,khiap_oday
+557300,Dong Ha meteo,khiap_oday
+557400,Con Co,khiap_oday

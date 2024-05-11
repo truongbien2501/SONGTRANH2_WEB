@@ -1,0 +1,39 @@
+Matram,tentram,TAB
+555600,Dong Hoi meteo,huonggioavg10_oday
+555600,Dong Hoi meteo,huonggiomax60_oday
+555600,Dong Hoi meteo,huonggio_oday
+555600,Dong Hoi meteo,tocdogio_avg10_oday
+555600,Dong Hoi meteo,tocdogio_max60_oday
+555600,Dong Hoi meteo,tocdogio_oday
+557500,Tuyen Hoa,huonggioavg10_oday
+557500,Tuyen Hoa,huonggiomax60_oday
+557500,Tuyen Hoa,huonggio_oday
+557500,Tuyen Hoa,tocdogio_avg10_oday
+557500,Tuyen Hoa,tocdogio_max60_oday
+557500,Tuyen Hoa,tocdogio_oday
+557700,Ba Don,huonggioavg10_oday
+557700,Ba Don,huonggiomax60_oday
+557700,Ba Don,huonggio_oday
+557700,Ba Don,tocdogio_avg10_oday
+557700,Ba Don,tocdogio_max60_oday
+557700,Ba Don,tocdogio_oday
+86501,Tan My,young_dd
+86501,Tan My,young_dd2m
+86501,Tan My,young_dd2s
+86501,Tan My,young_ff
+86501,Tan My,young_ff2m
+86501,Tan My,young_ff2s
+86847,Ba Don,young_dd
+86847,Ba Don,young_dd2m
+86847,Ba Don,young_dd2s
+86847,Ba Don,young_ff
+86847,Ba Don,young_ff2m
+86847,Ba Don,young_ff2s
+86848,Dong Hoi,young_dd
+86848,Dong Hoi,young_dd2m
+86848,Dong Hoi,young_dd2s
+86848,Dong Hoi,young_ff
+86848,Dong Hoi,young_ff2m
+86848,Dong Hoi,young_ff2s
+AWS0000025,Le Thuy KT,huonggio_avg10_wb5
+AWS0000025,Le Thuy KT,huonggio_max1phut_wb5

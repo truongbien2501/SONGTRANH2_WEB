@@ -1,0 +1,32 @@
+Matram,tentram,TAB
+556700,Tra My,huonggioavg10_oday
+556700,Tra My,huonggiomax60_oday
+556700,Tra My,huonggio_oday
+556700,Tra My,tocdogio_avg10_oday
+556700,Tra My,tocdogio_max60_oday
+556700,Tra My,tocdogio_oday
+556800,Tam Ky,huonggioavg10_oday
+556800,Tam Ky,huonggiomax60_oday
+556800,Tam Ky,huonggio_oday
+556800,Tam Ky,tocdogio_avg10_oday
+556800,Tam Ky,tocdogio_max60_oday
+556800,Tam Ky,tocdogio_oday
+556900,Cu Lao Cham,huonggioavg10_oday
+556900,Cu Lao Cham,huonggiomax60_oday
+556900,Cu Lao Cham,huonggio_oday
+556900,Cu Lao Cham,tocdogio_avg10_oday
+556900,Cu Lao Cham,tocdogio_max60_oday
+556900,Cu Lao Cham,tocdogio_oday
+86012,Hoi An,young_dd
+86012,Hoi An,young_dd2m
+86012,Hoi An,young_dd2s
+86012,Hoi An,young_ff
+86012,Hoi An,young_ff2m
+86493,Tam Ky,young_dd
+86493,Tam Ky,young_dd2m
+86493,Tam Ky,young_dd2s
+86493,Tam Ky,young_ff
+86493,Tam Ky,young_ff2m
+86493,Tam Ky,young_ff2s
+AWS0000027,Kham Duc,huonggio_avg10_wb5
+AWS0000027,Kham Duc,huonggio_max1phut_wb5

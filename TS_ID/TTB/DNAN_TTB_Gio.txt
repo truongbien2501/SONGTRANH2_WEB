@@ -1,0 +1,21 @@
+Matram,tentram,TAB
+556600,Da Nang,huonggioavg10_oday
+556600,Da Nang,huonggiomax60_oday
+556600,Da Nang,huonggio_oday
+556600,Da Nang,tocdogio_avg10_oday
+556600,Da Nang,tocdogio_max60_oday
+556600,Da Nang,tocdogio_oday
+86521,Cam Le,young_dd
+86521,Cam Le,young_dd2m
+86521,Cam Le,young_dd2s
+86521,Cam Le,young_ff
+86521,Cam Le,young_ff2m
+86521,Cam Le,young_ff2s
+86855,Da Nang,young_dd
+86855,Da Nang,young_dd2m
+86855,Da Nang,young_dd2s
+86855,Da Nang,young_ff
+86855,Da Nang,young_ff2m
+86855,Da Nang,young_ff2s
+AWS0000028,Ba Na,huonggio_avg10_wb5
+AWS0000028,Ba Na,huonggio_max1phut_wb5

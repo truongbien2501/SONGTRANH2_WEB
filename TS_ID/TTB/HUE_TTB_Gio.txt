@@ -1,0 +1,35 @@
+Matram,tentram,TAB
+557000,Nam Dong,huonggioavg10_oday
+557000,Nam Dong,huonggiomax60_oday
+557000,Nam Dong,huonggio_oday
+557000,Nam Dong,tocdogio_avg10_oday
+557000,Nam Dong,tocdogio_max60_oday
+557000,Nam Dong,tocdogio_oday
+557100,A Luoi,huonggioavg10_oday
+557100,A Luoi,huonggiomax60_oday
+557100,A Luoi,huonggio_oday
+557100,A Luoi,tocdogio_avg10_oday
+557100,A Luoi,tocdogio_max60_oday
+557100,A Luoi,tocdogio_oday
+561800,Hue,huonggioavg10_oday
+561800,Hue,huonggiomax60_oday
+561800,Hue,huonggio_oday
+561800,Hue,tocdogio_avg10_oday
+561800,Hue,tocdogio_max60_oday
+561800,Hue,tocdogio_oday
+86852,Hue,young_dd
+86852,Hue,young_dd2m
+86852,Hue,young_dd2s
+86852,Hue,young_ff
+86852,Hue,young_ff2m
+86852,Hue,young_ff2s
+AWS0000025,Le Thuy KT,tocdogio_avg10_wb5
+AWS0000025,Le Thuy KT,tocdogio_max1phut_wb5
+AWS0000026,Thuan An,huonggio_avg10_wb5
+AWS0000026,Thuan An,huonggio_max1phut_wb5
+AWS0000026,Thuan An,tocdogio_avg10_wb5
+AWS0000026,Thuan An,tocdogio_max1phut_wb5
+AWS0000027,Kham Duc,tocdogio_avg10_wb5
+AWS0000027,Kham Duc,tocdogio_max1phut_wb5
+AWS0000028,Ba Na,tocdogio_avg10_wb5
+AWS0000028,Ba Na,tocdogio_max1phut_wb5

@@ -102,7 +102,10 @@ def anh_mo_hinh_WRF():
     tg = datetime.now()
     obs = ['12', '00']
     ngaylayfile = [tg,tg-timedelta(days=1)]
+    thoat = False
     for ngay in ngaylayfile:
+        if thoat==True:
+            break
         for zz in obs:
             try:   
                 sftp = client.open_sftp()
@@ -124,7 +127,8 @@ def anh_mo_hinh_WRF():
                 image_file_path = '/home/disk2/KQ_WRF72h/' + ngay.strftime('%d%m%Y') + '/Hinh_{}z_72h/Luoi2/MuaL2_07.png'.format(zz,zz) 
                 image_file = sftp.open(image_file_path,'rb')
                 image_data = image_file.read()
-                image_may = Image.open(io.BytesIO(image_data))   
+                image_may = Image.open(io.BytesIO(image_data)) 
+                thoat =True  
                 break             
             except:
                 pass
@@ -594,7 +598,7 @@ elif authentication_status == True:
                         
         # tinh dung tich cac ho chua
         data = {"Hồ": ["Sông Tranh", "A Vương", "Sông Bung 2","Sông Bung 4"],
-                "Mực nước(m)": ['{:.1f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]), '{:.1f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]), '{:.1f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'{:.1f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1])],
+                "Mực nước(m)": ['{:.1f}'.format(data_mucnuoc['mucnuoc_st'].iloc[-1]), '{:.1f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]), '{:.1f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'{:.1f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1])],
                 "Dung tích (tr/m3)": [dungtich_songtranh2, dungtich_av, dungtich_sb2,dungtich_sb4],
                 "Tỷ lệ(%)": ['{:.1f}'.format(tyle_st), '{:.1f}'.format(tyle_av), '{:.1f}'.format(tyle_sb2),'{:.1f}'.format(tyle_sb4)],
                 "MNDBT": ['175', '380', '605','222.5'],
@@ -1026,8 +1030,8 @@ elif authentication_status == True:
         if selected=="SÔNG TRANH 2" or selected=="A VƯƠNG" or  selected=="SÔNG BUNG 4" or  selected=="SÔNG BUNG 2":
             HOCHUA_vgtb(selected)
         elif selected=="ODA":
-            # solieu_kttv()
-            st.warning("Chưa cấp quyền truy cập")
+            solieu_kttv()
+            # st.warning("Chưa cấp quyền truy cập")
 
     sideBar()
 

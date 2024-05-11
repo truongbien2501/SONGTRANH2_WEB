@@ -1,0 +1,11 @@
+Matram,tentram,TAB
+553900,Binh Dien,nhietdo_sieuam_oday
+554300,Thuong Nhat,nhietdo_sieuam_oday
+557000,Nam Dong,nhietdo_oday
+557100,A Luoi,nhietdo_oday
+561800,Hue,nhietdo_oday
+AWS0000025,Le Thuy KT,nhietdo_11m_wb5
+AWS0000026,Thuan An,nhietdo_11m_wb5
+AWS0000026,Thuan An,nhietdo_wb5
+AWS0000027,Kham Duc,nhietdo_11m_wb5
+AWS0000028,Ba Na,nhietdo_11m_wb5

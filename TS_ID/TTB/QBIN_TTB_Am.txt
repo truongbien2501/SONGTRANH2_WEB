@@ -1,0 +1,5 @@
+Matram,tentram,TAB
+555600,Dong Hoi meteo,doam_oday
+557500,Tuyen Hoa,doam_oday
+557700,Ba Don,doam_oday
+AWS0000025,Le Thuy KT,doam_wb5

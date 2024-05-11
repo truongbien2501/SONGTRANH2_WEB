@@ -1,0 +1,5 @@
+Matram,tentram,TAB
+554500,Dakrong,nhietdo_sieuam_oday
+557200,Khe Sanh,nhietdo_oday
+557300,Dong Ha meteo,nhietdo_oday
+557400,Con Co,nhietdo_oday

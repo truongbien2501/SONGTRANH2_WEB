@@ -1,0 +1,5 @@
+Matram,tentram,TAB
+556200,Dung Quat Meteo,nhietdo_oday
+556300,Ba To,nhietdo_oday
+556400,Quang Ngai,nhietdo_oday
+556500,Ly Son,nhietdo_oday

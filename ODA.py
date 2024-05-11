@@ -8,6 +8,11 @@ from datetime import datetime,timedelta
 import time
 from func import CDH_TTB_API
 import plotly.express as px
+def download_csv(data):
+    csv = data.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="data.csv">Download CSV File</a>'
+    return href
 def graphs_mua(df):
     bd = df['time'].min()
     kt = df['time'].max()
@@ -61,27 +66,28 @@ def graphs_mua_db(df):
      xaxis=dict(showgrid=True, gridcolor='#cecdcd'),  # Show x-axis grid and set its color
      )
     return fig_mua_db
-@st.cache_data
+# @st.cache_data
 def graphs_h(df_h):
-    # # vẽ muc nuoc
-    fig_mucnuoc=px.line(df_h,x=df_h.columns.to_list()[0],y="Mực nước (m)",
-       orientation="v",
-       title="<b>Đường quá trình mực nước</b>",
-       color_discrete_sequence=["#0083b8"],
-       template="plotly_white",
+    # print(df_h)
+    # Vẽ biểu đồ
+    fig = px.line(df_h, x = 'time',y = df_h.columns)
+    # fig = px.line(df_h, x = 'Thời gian' ,y=[df_h['Q đến (m3/s)'],df_h['Q điều tiết (m3/s)']],)
+    fig.update_traces(mode="lines")
+    fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
+    fig.layout.xaxis.fixedrange = True
+    fig.layout.yaxis.fixedrange = True
+    fig.update_layout(spikedistance=1000, hoverdistance=100)
+    # Cập nhật layout của biểu đồ
+    fig.update_layout(
+        title="<b>Đường quá trình mực nước</b>",
+        xaxis=dict(tickmode="linear",tickformat="%d-%m-%Y %H:%M",dtick="H1",tickangle=-30),
+        plot_bgcolor="rgba(1,0,0,0)",
+        yaxis=dict(showgrid=True,title="Mực nước (m))"),
+        legend=dict(orientation="v", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
-    fig_mucnuoc.update_traces(mode="lines")
-    fig_mucnuoc.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across",spikethickness=2)
-    fig_mucnuoc.update_yaxes(showspikes=True, spikecolor="orange", spikesnap="cursor", spikemode="across",spikethickness=2)
-    fig_mucnuoc.layout.xaxis.fixedrange = True
-    fig_mucnuoc.layout.yaxis.fixedrange = True
-    fig_mucnuoc.update_layout(spikedistance=1000, hoverdistance=100)
-    # fig_mucnuoc.update_layout(
-    # xaxis=dict(tickmode="linear"),
-    # plot_bgcolor="rgba(0,0,0,0)",
-    # yaxis=(dict(showgrid=True))
-    #  )
-    return fig_mucnuoc
+
+    return fig
 # Function to apply conditional formatting
 def highlight_greater(val):
     if val >= 50:
@@ -106,49 +112,44 @@ def dataframe_with_selections(df):
     selected_rows = edited_df[edited_df['Chọn']]
     return selected_rows.drop('Chọn', axis=1)
 
+
 @st.cache_data
-def chaymua(name_tinh):
+def chaymua(name_tinh,bd,kt):
     # Quảng Ngãi
-    df = CDH_TTB_API.TTB_API_mua("TS_ID/TTB/" + name_tinh + "_TTB_Mua.txt")
+    df = CDH_TTB_API.TTB_API_mua("TS_ID/TTB/" + name_tinh + "_TTB_Mua.txt",bd,kt)
     # # bàn tong ket tong ket mua
     tk = CDH_TTB_API.xulysolieu_mua(df)
     return tk,df
-    
-    # print(tk.columns)
-    # print(tk.reset_index(drop=False))
-    # tk.to_excel('quangngai.xlsx')
-    # tk = pd.DataFrame(tk)
-    # print(tk.columns)
-    # tk = pd.read_excel('quangngai.xlsx')
-    # tk.insert(0,'Chọn',False)
-    # # st.dataframe(tk)
-    # # Hiển thị bảng
-    # edited_df  = st.data_editor(tk,column_config={"Chọn": st.column_config.CheckboxColumn("Chọn",help="Chọn trạm",default=True,)},disabled=["widgets"],hide_index=True)
-    # # Lấy danh sách các chỉ mục hàng đã chọn
-    
-    # selected_rows = edited_df[edited_df.Select]
-    # print(selected_rows)
-    # checked_rows = tk[tk['Chọn']==True]
-    # st.write(checked_rows)
-    # print(checked_rows)
 
-    # # Lấy DataFrame của các hàng đã chọn
-    # selected_df = tk.loc[checked_rows].  
+@st.cache_data
+def chaymucnuoc(name_tinh,yeuto,bd,kt):
+    yt = ['MucNuoc','Gio','Nhiet','Am','Ap']
+    ty = ['H','Gio','Nhiet','Am','Ap']
+    # Quảng Ngãi
+    df = CDH_TTB_API.TTB_API_mucnuoc("TS_ID/TTB/" + name_tinh + "_TTB_{}.txt".format(ty[yt.index(yeuto)]),bd,kt)
+    # print(df)
+    # # bàn tong ket tong ket mua
+    tk = CDH_TTB_API.xulysolieu_h(df)
+    return tk,df
 
-    # selection = dataframe_with_selections(tk)
-    # print(selection['Tram'].to_list())
-    # st.write("Your selection:")
-    # st.write(selection)
+# @st.cache_data    
+def getdulieu(tinh,yeuto,bd,kt):
+    if yeuto =='Mua':
+        tk,solieugoc = chaymua(tinh,bd,kt)
+    else:
+        tk,solieugoc = chaymucnuoc(tinh,yeuto,bd,kt)
+    
+    return tk,solieugoc
 
 def solieu_kttv():
     # st.set_page_config(layout="wide")
-    st.markdown('<h1 style="font-size:25px;color:Blue;font-family: Times New Roman;text-align: center;">VIEW SỐ LIỆU ODA</h1>', unsafe_allow_html=True)# tạo header màu xanh màu xanh time new roman
+    # st.markdown('<h1 style="font-size:25px;color:Blue;font-family: Times New Roman;text-align: center;">VIEW SỐ LIỆU ODA</h1>', unsafe_allow_html=True)# tạo header màu xanh màu xanh time new roman
     # now = datetime.now()
     with st.sidebar:
         tinh,yeutos = st.columns(2)
         # Tạo một danh sách các tùy chọn cho combobox
         provin = ["QNGA", "QBIN", "QTRI", "THUE", "DNAN", "QNAM"]
-        yeuto = ['Mua','MucNuoc','Gio','Nhiet','Am','Ap']
+        yeuto = ['MucNuoc','Mua','Gio','Nhiet','Am','Ap']
         # Sử dụng st.selectbox để tạo combobox
         with tinh:
             selected_tinh = st.selectbox("Chọn tỉnh:", provin)
@@ -163,10 +164,14 @@ def solieu_kttv():
         ngaykt = kt.date_input("Ngày kết thúc",value=datetime(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour))
         gio_ketthuc = kt_gio.time_input('Giờ kết thúc',value=datetime.strptime(datetime.now().strftime("%H:00"),"%H:00"))
             
-            
+    tichluy,bieudo = st.columns(2) # tao 2 cot tram va bieu do
+    
+
     # if st.button("View"):
-    tk,solieugoc = chaymua(selected_tinh)
-    tichluy,bando = st.columns(2)
+
+    tk,solieugoc = getdulieu(selected_tinh,selected_yeuto,datetime.combine(ngaybd, gio_batdau),datetime.combine(ngaykt, gio_ketthuc))
+    # print(tk)
+    
     with tichluy:
         df_with_selections = tk.copy()
         df_with_selections.insert(0, "Chọn", False)
@@ -180,14 +185,32 @@ def solieu_kttv():
         )
         # Filter the dataframe using the temporary column, then drop the column
         selected_rows = edited_df[edited_df['Chọn']]
-        print(selected_rows['Tram'].to_list())
-    with bando:
+        # print(selected_rows['Tram'].to_list())
+    with bieudo:
         solieugoc.reset_index(drop=False,inplace=True)
         # print(solieugoc)
         # tramve = selected_rows['Tram'].to_list()
-        print(selected_yeuto)
+        # print(selected_yeuto)
         if 'Mua' in selected_yeuto:
             st.plotly_chart(graphs_mua(solieugoc[['time']+  selected_rows['Tram'].to_list()]))
-        elif 'Mucnuoc'in selected_yeuto:
+        else:
+            # print(solieugoc)
             st.plotly_chart(graphs_h(solieugoc[['time']+  selected_rows['Tram'].to_list()]))
+    with st.expander("VIEW SỐ LIỆU"):
 
+        showData=st.multiselect('Filter: ',solieugoc.columns,default=solieugoc.columns.tolist())
+        st.dataframe(solieugoc[showData],use_container_width=True)
+        if st.button('Tải dữ liệu'):
+            st.markdown(download_csv(solieugoc[showData]), unsafe_allow_html=True) 
+
+    # print(solieugoc)
+    st.markdown('ĐẶC TRƯNG SỐ LIỆU',unsafe_allow_html=True)
+    if selected_yeuto == 'Mua':
+        tongketsolieu = solieugoc[solieugoc['time'].dt.minute==0].iloc[:,1:].agg(['sum','max'])
+        st.dataframe(tongketsolieu)
+    elif selected_yeuto == 'MucNuoc':
+        tongketsolieu = solieugoc[solieugoc['time'].dt.minute==0].agg(['mean','max', 'min'])
+        st.dataframe(tongketsolieu)
+    else:    
+        tongketsolieu = solieugoc[solieugoc['time'].dt.minute==0].agg(['mean','max', 'min'])
+        st.dataframe(tongketsolieu)        

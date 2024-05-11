@@ -1,0 +1,37 @@
+Matram,tentram,TAB
+557200,Khe Sanh,huonggioavg10_oday
+557200,Khe Sanh,huonggiomax60_oday
+557200,Khe Sanh,huonggio_oday
+557200,Khe Sanh,tocdogio_avg10_oday
+557200,Khe Sanh,tocdogio_max60_oday
+557200,Khe Sanh,tocdogio_oday
+557300,Dong Ha meteo,huonggioavg10_oday
+557300,Dong Ha meteo,huonggiomax60_oday
+557300,Dong Ha meteo,huonggio_oday
+557300,Dong Ha meteo,tocdogio_avg10_oday
+557300,Dong Ha meteo,tocdogio_max60_oday
+557300,Dong Ha meteo,tocdogio_oday
+557400,Con Co,huonggioavg10_oday
+557400,Con Co,huonggiomax60_oday
+557400,Con Co,huonggio_oday
+557400,Con Co,tocdogio_avg10_oday
+557400,Con Co,tocdogio_max60_oday
+557400,Con Co,tocdogio_oday
+86089,Con Co,young_dd
+86089,Con Co,young_dd2m
+86089,Con Co,young_dd2s
+86089,Con Co,young_ff
+86089,Con Co,young_ff2m
+86089,Con Co,young_ff2s
+86515,Cua Viet,young_dd
+86515,Cua Viet,young_dd2m
+86515,Cua Viet,young_dd2s
+86515,Cua Viet,young_ff
+86515,Cua Viet,young_ff2m
+86515,Cua Viet,young_ff2s
+86849,Dong Ha,young_dd
+86849,Dong Ha,young_dd2m
+86849,Dong Ha,young_dd2s
+86849,Dong Ha,young_ff
+86849,Dong Ha,young_ff2m
+86849,Dong Ha,young_ff2s

@@ -1,0 +1,10 @@
+Matram,tentram,TAB,YeuTo,tinh
+555300,Dong Tam,mucnuoc_oday,Muc Nuoc,Quang Binh
+555400,Mai Hoa,mucnuoc_oday,Muc Nuoc,Quang Binh
+555500,Kien Giang,mucnuoc_oday,Muc Nuoc,Quang Binh
+555700,Phong Nha,mucnuoc_oday,Muc Nuoc,Quang Binh
+555800,Tan My,mucnuoc_oday,Muc Nuoc,Quang Binh
+555900,Tan Lam,mucnuoc_oday,Muc Nuoc,Quang Binh
+556100,Le Thuy,mucnuoc_oday,Muc Nuoc,Quang Binh
+557600,Dong Hoi idro,mucnuoc_oday,Muc Nuoc,Quang Binh
+559200,Truong Son,mucnuoc_oday,Muc Nuoc,Quang Binh

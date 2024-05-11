@@ -28,27 +28,29 @@ def TTB_API_songtranh2():
     return data
 
 
-def TTB_API_mucnuoc():
-    now = datetime.now()
-    kt = datetime(now.year,now.month,now.day,7)
-    bd = kt - timedelta(days=1)
+def TTB_API_mucnuoc(pth,bd,kt):
+    # now = datetime.now()
+    # kt = datetime(now.year,now.month,now.day,now.hour)
+    # bd = kt - timedelta(days=5)
     data = pd.DataFrame()
-    data['time'] = pd.date_range(bd,kt,freq='T')
-    tram = pd.read_csv('TS_ID/TTB/TTB_H_ODA.txt')
+    data['time'] = pd.date_range(bd,kt,freq='10min')
+    tram = pd.read_csv(pth)
     for item in zip(tram.Matram,tram.tentram,tram.TAB):
     # print(item[0],item[2],item[1])
         pth = 'http://113.160.225.84:2018/API_TTB/XEM/solieu.php?matram={}&ten_table={}&sophut=1&tinhtong=0&thoigianbd=%27{}%2000:00:00%27&thoigiankt=%27{}%2023:59:00%27'
         pth = pth.format(item[0],item[2],bd.strftime('%Y-%m-%d'),kt.strftime('%Y-%m-%d'))
         df = pd.read_html(pth)
-        df[0].rename(columns={"thoi gian":'time','so lieu':item[1]},inplace=True)
+        if 'gio' in pth or 'young' in pth:
+            df[0].rename(columns={"thoi gian":'time','so lieu':item[1] + '-' +str(item[2])},inplace=True)
+        else:
+            df[0].rename(columns={"thoi gian":'time','so lieu':item[1]},inplace=True)
         df = df[0].drop('Ma tram',axis=1)
         df['time'] = pd.to_datetime(df['time'])
         data = data.merge(df,how='left',on='time')
     data.set_index('time',inplace=True)
-    data = data[data.index.minute == 0]
-
-    data = data[['Son Giang','Tra Khuc','An Chi','Song Ve','Chau O','Tra Cau','Binh Dong','Dung Quat Idro']]*100
-    data =data.astype(float)
+    # # data = data[data.index.minute == 0]
+    # data = data[['Son Giang','Tra Khuc','An Chi','Song Ve','Chau O','Tra Cau','Binh Dong','Dung Quat Idro']]*100
+    # data =data.astype(float)
     return data
 def CDH_API_mucnuoc():
     now = datetime.now()
@@ -202,10 +204,10 @@ def H_excel():
     return df,df_lu
 # H_excel()
 
-def TTB_API_mua(pth):
-    kt = datetime.now()
-    kt = datetime(kt.year,kt.month,kt.day,kt.hour,kt.minute)
-    bd = kt - timedelta(days=10)
+def TTB_API_mua(pth,bd,kt):
+    # kt = datetime.now()
+    # kt = datetime(kt.year,kt.month,kt.day,kt.hour,kt.minute)
+    # bd = kt - timedelta(days=10)
     data = pd.DataFrame()
     data['time'] = pd.date_range(bd,kt,freq='min')
     tram = pd.read_csv(pth)
@@ -234,7 +236,6 @@ def TTB_API_mua(pth):
 
 def xulysolieu_mua(df):
     # now = datetime.now()
-    
     # print(df)
     df_xl = pd.DataFrame()
     # Lấy danh sách tên cột từ df1
@@ -289,4 +290,16 @@ def xulysolieu_mua(df):
     df_xl.reset_index(drop=False,inplace=True)
     df_xl.rename(columns={'index':'Tram'},inplace=True)
     # print(df_xl)
+    return df_xl
+
+def xulysolieu_h(df):
+    # now = datetime.now()
+    df = df[df.index.minute ==0]
+    df.index = df.index.strftime('%Hh %d/%m')
+    df.reset_index(drop=False,inplace=True)
+    df_xl = df.transpose()
+    df_xl.columns = df_xl.iloc[0]
+    df_xl = df_xl.iloc[1:,:]
+    df_xl.reset_index(drop=False,inplace=True)
+    df_xl.rename(columns={'index':'Tram'},inplace=True)
     return df_xl
