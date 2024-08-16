@@ -586,11 +586,23 @@ elif authentication_status == True:
         # tyle_st = (float(dungtich_songtranh2)/733.4)*100
         
         #tinh thong so a vuong
-        dungtich_songtranh2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_st'].iloc[-1]),'Z','W')
-        dungtich_av = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]),'Z3','W3')
-        dungtich_sb2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'Z1','W1')
-        dungtich_sb4 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1]),'Z2','W2')
-     
+        print(data_mucnuoc['mucnuoc_av'].iloc[-1])
+        try:
+            dungtich_songtranh2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_st'].iloc[-1]),'Z','W')
+        except:
+            dungtich_songtranh2 = 500
+        try:
+            dungtich_av = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_av'].iloc[-1]),'Z3','W3')
+        except:
+            dungtich_av = 100
+        try:
+            dungtich_sb2 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb2'].iloc[-1]),'Z1','W1')
+        except:
+            dungtich_sb2 = 100
+        try:
+            dungtich_sb4 = noisuy_hw('{:.2f}'.format(data_mucnuoc['mucnuoc_sb4'].iloc[-1]),'Z2','W2')
+        except:
+            dungtich_sb4 = 100  
         tyle_st = (float(dungtich_songtranh2)/733.4)*100
         tyle_av = (float(dungtich_av)/343.55)*100
         tyle_sb2 = (float(dungtich_sb2)/94.3)*100
